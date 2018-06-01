@@ -13,7 +13,6 @@ var morgan          = require('morgan');
 var passport        = require('passport');
 var flash           = require('connect-flash');
 var MongoStore      = require('connect-mongo')(session);
-var multer          = require('multer');
 
 // PASSPORT CONFIGURATION - for authentication
 // ======================================================================================
@@ -24,8 +23,7 @@ require('./config/passport.js')(passport);
 app.use(express.static('public'));                  // for serving files from public folder
 app.use(morgan('dev'));                             // for logging traffic in our app
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-app.use(multer({dest: '/uploads/'}).any());               
+app.use(bodyParser.json());              
 app.use(session({
     secret: 'anystringoftext',
     saveUninitialized: true,                        // allow persistence event at server restart if there's a persistence layer
@@ -40,7 +38,7 @@ app.use(flash());                                   // for displaying messages o
 // ROUTES FOR OUR APPLICATION
 // ======================================================================================
 // authentication router for unauthenthicated access 
-require('./app/routes/auth.js')(authRouter, passport);
+require('./app/routes/auth')(authRouter, passport);
 app.use('/auth', authRouter);
 // secured router when user has logged in (authenticated access)
 require('./app/routes/secure.js')(secureRouter, passport);

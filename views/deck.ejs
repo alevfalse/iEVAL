@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Deck</title>
+</head>
+<body>
+    <%
+        if (locals.student) { %>
+            <h1>Student's Deck Page</h1>
+            <p>This page will contain all the class cards the student is enrolled in and not yet evaluated.</p>
+            <p>
+            <strong>Student Number</strong>: <%= student._id %><br>
+            <strong>First Name</strong>: <%= student.firstName %><br>
+            <strong>Last Name</strong>: <%= student.lastName %><br>
+
+            <strong>Google ID</strong>: <%= student.google.id %><br>
+            <strong>Google Token</strong>: <%= student.google.token %><br>
+            <strong>Google Email</strong>: <%= student.google.email %><br>
+            <strong>Google Name</strong>: <%= student.google.name %>
+            </p>
+        <%} else if (locals.admin) {%>
+            <h1>Admin's Deck Page</h1>
+            <p>This will contain the form in which the admin<br> 
+            may create another class and input its details</p>
+            <p>
+            <strong>Admin ID:</strong>: <%= admin._id %><br>
+            <strong>Username</strong>: <%= admin.username %><br>
+            <strong>Password</strong>: <%= admin.password %><br>
+            <strong>First Name</strong>: <%= admin.firstName %><br>
+            <strong>Last Name</strong>: <%= admin.lastName %><br>
+        <%}%>
+    
+</body>
+</html>

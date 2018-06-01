@@ -1,110 +1,90 @@
 var LocalStrategy = require('passport-local').Strategy;
-
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var configAuth = require('./auth.js');
 var fs = require('fs');
 var mongoose = require('mongoose');
-var User = require('../app/models/user');
-var Image = require('../app/models/image');
+var Student = require('../app/models/student.js');
 
 module.exports = function(passport) {
     passport.serializeUser(function(user, done) {
-        done(null, user.id);  // stores the user's id in session
+        done(null, user.id);  // stores the student id in session
     });
 
     passport.deserializeUser(function(id, done) {
-        User.findById(id, function(err, user) {
+        Student.findById(id, function(err, user) {
             done(err, user);  // getting all the data of the user using its id
         });
     });
 
-    passport.use('local-signup', new LocalStrategy({
-            // default values, can be not declared
-            usernameField: 'username', 
-            passwordField: 'password',
-            passReqToCallback: true // passses the request object to the callback
+
+    // student login using iacademy gmail
+    passport.use(new GoogleStrategy({
+        clientID: configAuth.googleAuth.clientID,
+        clientSecret: configAuth.googleAuth.clientSecret,
+        callbackURL: configAuth.googleAuth.callbackURL,
     },
-        function(req, username, password, done) {
-            process.nextTick(function() {
-                if (req.body.password != req.body.confirmPassword) {
-                    console.log('Password confirm mismatch.')
-                    return done(null, false) 
-                };
-                User.findOne({$or: [{'username': username}, {'emailAddress': req.body.email} ]}, function(err, user) {
-                    if  (err) { return done(err); }
-                    if (user) { // if the username already exists
-                        return done(null, false, req.flash('signupMessage', 'Username or email address is already taken.'));
-                    } 
-                    else {
+    function(accessToken, refreshToken, profile, done) {
+        process.nextTick(function(){
+            Student.findOne({'google.id': profile.id}, function(err, user) {
+                if(err) return done(err);
+                if(user) return done(null, user);
 
-                        defaultProfileImagePath = __dirname + '\\images\\profileImage.png';
-                        console.log(defaultProfileImagePath);
-                        defaultCoverImagePath = __dirname + '\\images\\placeholderImage2.png';
-                        console.log(defaultCoverImagePath);
-
-                        var profileImageData = fs.readFileSync(defaultProfileImagePath, {encoding: 'base64'});
-                        var defaultProfileImage = new Image({
-                            _id: new mongoose.Types.ObjectId(),
-                            img: {
-                                data: profileImageData,
-                                contentType: 'image/png'
+                else {
+                    var email = profile.emails[0].value;
+                    var index = email.indexOf('@');
+                    var studentID = email.substring(0,index)
+                    // if the student id's length is not 9 or the email isn't an iacademy gmail
+                    if (studentID.length != 9 || !email.includes('iacademy.edu.ph')) {
+                        return done(null, false);
+                    } else {
+                        var newStudent = new Student({
+                            _id: studentID,
+                            firstName: profile.name.givenName,
+                            lastName: profile.name.familyName,
+                            google: {
+                                id: profile.id,
+                                token: accessToken,
+                                email: email,
+                                name: profile.displayName
                             }
-                        });
-
-                        var coverImageData = fs.readFileSync(defaultCoverImagePath, {encoding: 'base64'});
-                        var defaultCoverImage = new Image({
-                            _id: new mongoose.Types.ObjectId(),
-                            img: {
-                                data: coverImageData,
-                                contentType: 'image/png'
-                            }
-                        });
-                        
-                        defaultProfileImage.save(function (err) {
-                            defaultCoverImage.save(function (err) {
-
-                                var newUser = new User({
-                                    _id: new mongoose.Types.ObjectId(),
-                                    username: username,
-                                    password: User.generateHash(password),
-                                    firstName: req.body.firstName,
-                                    lastName: req.body.lastName,
-                                    emailAddress: req.body.email,
-                                    gender: req.body.gender,
-                                    profileImage: defaultProfileImage._id,
-                                    coverImage: defaultCoverImage._id
-                                })
-                                
-                                newUser.save(function(err) {
-                                    if (err) throw err;
-                                    return done(null, newUser); // return the new user
-                                })
-                            })
                         })
+                        newStudent.save(function(err, newStudent) {
+                            if(err) throw err;
+                            console.log(newStudent);
+                            return done(null, newStudent);
+                        })
+                        console.log(profile);
                     }
-                })
+                }
             })
-        }
-    ))
+        })
+    }))
 
-    passport.use('local-login', new LocalStrategy({
-        // names of the fields in the form
-        usernameField: 'email', 
+
+    // admin login
+    passport.use('local-admin-login', new LocalStrategy({
+        usernameField: 'username',
         passwordField: 'password',
-        passReqToCallback: true // passses the request object to the callback
+        passReqToCallback: true
     },
-        function(req, email, password, done) {
-            process.nextTick(function() {
-                console.log(email);
-                User.findOne({'emailAddress': email}, function(err, user) {
-                    if (err) { return done(err); }
-                    if (!user) {
-                        return done(null, false, req.flash('loginMessage', 'Email does not exist.'));
-                    }
-                    if (!user.validPassword(password)) {
-                        return done(null, false, req.flash('loginMessage', 'Password does not match.'))
-                    }
-                    return done(null, user); // sends/binds the user object to the request
-                })
+    function(req, username, password, done) {
+
+        process.nextTick(function() {
+
+            console.log(email);
+            Admin.findOne({'username': username}, function(err, admin) {
+                if (err) { return done(err); }
+
+                if (!admin) {
+                    return done(null, false, req.flash('loginMessage', 'Username does not exist.'));
+                }
+
+                if (!admin.validPassword(password)) {
+                    return done(null, false, req.flash('loginMessage', 'Password does not match.'))
+                }
+
+                return done(null, admin); // sends/binds the user object to the request
             })
-        }
-    ))
+        })
+    }))
 }

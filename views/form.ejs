@@ -5,12 +5,12 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <link rel="shortcut icon" href="images/favicon.ico" />
-   <title>form component</title>
+   <title>Evaluation Form</title>
 
    <!-- semantic-ui styles -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" />
    <!-- main css -->
-   <link rel="stylesheet" href="./form.css">
+   <link rel="stylesheet" href="/css/form.css">
 </head>
 
 <body>
@@ -24,35 +24,35 @@
         <div class="courseDetails">
             <div class="fields">
                 <div class="three wide field">
-                    <label for="">Course Code</label>
+                    <label for=""><%= cls.course.code %></label>
                     <input type="text" readonly="readonly" name="" id="">
                 </div>
                 <div class="eleven wide field">
-                    <label for="">Course Name</label>
+                    <label for=""><%= cls.course.name %></label>
                     <input type="text" readonly="readonly" name="" id="">
                 </div>
                 <div class="two wide field">
-                    <label for="">Units</label>
+                    <label for=""><%= cls.course.units %></label>
                     <input type="text" readonly="readonly" name="" id="">
                 </div>
             </div>
             
             <div class="fields">
                 <div class="six wide field">
-                    <label for="">Section</label>
+                    <label for=""><%= cls.course.units %></label>
                     <input type="text" readonly="readonly" name="" id="">
                 </div>
                 <div class="fields">
                     <div class="field">
-                        <label>Day</label>
+                        <label><%= cls.schedule.day %></label>
                         <input type="text" placeholder="">
                     </div>
                     <div class="field">
-                        <label for="">Time</label>
+                        <label for=""><%= cls.schedule.time %></label>
                         <input type="text" placeholder="">
                     </div>
                     <div class="field">
-                        <label for="">Room</label>
+                        <label for=""><%= cls.schedule.room %></label>
                         <input type="text" placeholder="">
                     </div>
                 </div>
@@ -62,7 +62,7 @@
         <div class="ui dividing header">Faculty:</div> <!-- ========================================================================================= -->
         <div class="professorDetails">
             <h1 class="head">
-                (MR/MS) <a href="">Firstname Lastname</a>
+                <a href=""><%= cls.professor.firstName %> <%= cls.professor.lastName %>></a>
             </h1>
         </div>
     </div>
@@ -71,7 +71,7 @@
 
 <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
-    <form action="" method="POST" class="ui form evalutation_form">
+    <form action="/submit_evaluation/<%=cls.professor._id%>" method="POST" class="ui form evalutation_form">
         <div class="ui top attached label">
             Faculty Evaluation Form
         </div>
@@ -88,7 +88,7 @@
             <div class="thirteen wide field">
                 <label for="">1. Shows respect for the student</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-1" onchange="showSliderValue('slider-1', 'value-1')">
+                    <input name="q1" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-1" onchange="showSliderValue('slider-1', 'value-1')">
                 </div>
             </div>
             <div class="two wide field">
@@ -106,9 +106,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">1. Creates a warm and non-threatening atmosphere in class</label>
+                <label for="">2. Creates a warm and non-threatening atmosphere in class</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-25" onchange="showSliderValue('slider-25', 'value-25')">
+                    <input name="q2" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-25" onchange="showSliderValue('slider-25', 'value-25')">
                 </div>
             </div>
             <div class="two wide field">
@@ -124,9 +124,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">2. Allows students to clarify topics and to ask questions</label>
+                <label for="">3. Allows students to clarify topics and to ask questions</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-26" onchange="showSliderValue('slider-26', 'value-26')">
+                    <input name="q3" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-26" onchange="showSliderValue('slider-26', 'value-26')">
                 </div>
             </div>
             <div class="two wide field">
@@ -142,9 +142,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">3. Has positive rapport with students</label>
+                <label for="">4. Has positive rapport with students</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-27" onchange="showSliderValue('slider-27', 'value-27')">
+                    <input name="q4" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-27" onchange="showSliderValue('slider-27', 'value-27')">
                 </div>
             </div>
             <div class="two wide field">
@@ -162,9 +162,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">1. Encourages students to express their ideas</label>
+                <label for="">5. Encourages students to express their ideas</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-2" onchange="showSliderValue('slider-2', 'value-2')">
+                    <input name="q5" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-2" onchange="showSliderValue('slider-2', 'value-2')">
                 </div>
             </div>
             <div class="two wide field">
@@ -180,9 +180,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">2. Motivates students to continue learning even outside the classroom</label>
+                <label for="">6. Motivates students to continue learning even outside the classroom</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-3" onchange="showSliderValue('slider-3', 'value-3')">
+                    <input name="q6" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-3" onchange="showSliderValue('slider-3', 'value-3')">
                 </div>
             </div>
             <div class="two wide field">
@@ -200,9 +200,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">1. Give everyone a chance to participate in class activites.</label>
+                <label for="">7. Give everyone a chance to participate in class activites.</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-5" onchange="showSliderValue('slider-5', 'value-5')">
+                    <input name="q7" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-5" onchange="showSliderValue('slider-5', 'value-5')">
                 </div>
             </div>
             <div class="two wide field">
@@ -218,9 +218,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">2. Tells students how their perfomance is evaluated and gives feedback.</label>
+                <label for="">8. Tells students how their perfomance is evaluated and gives feedback.</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-6" onchange="showSliderValue('slider-6', 'value-6')">
+                    <input name="q8" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-6" onchange="showSliderValue('slider-6', 'value-6')">
                 </div>
             </div>
             <div class="two wide field">
@@ -238,9 +238,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">1. Uses varied teachniques and activites to enhance learning.</label>
+                <label for="">9. Uses varied teachniques and activites to enhance learning.</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-8" onchange="showSliderValue('slider-8', 'value-8')">
+                    <input name="q9" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-8" onchange="showSliderValue('slider-8', 'value-8')">
                 </div>
             </div>
             <div class="two wide field">
@@ -256,9 +256,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">2. Paraphrases concepts or uses examples to help students understand the lesson.</label>
+                <label for="">10. Paraphrases concepts or uses examples to help students understand the lesson.</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-9" onchange="showSliderValue('slider-9', 'value-9')">
+                    <input name="q10" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-9" onchange="showSliderValue('slider-9', 'value-9')">
                 </div>
             </div>
             <div class="two wide field">
@@ -276,9 +276,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">1. Presents the lessons in a clear and organized manner</label>
+                <label for="">11. Presents the lessons in a clear and organized manner</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-10" onchange="showSliderValue('slider-10', 'value-10')">
+                    <input name="q11" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-10" onchange="showSliderValue('slider-10', 'value-10')">
                 </div>
             </div>
             <div class="two wide field">
@@ -294,9 +294,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">2. Makes sure the activities and exercises match the lesson's objectives</label>
+                <label for="">12. Makes sure the activities and exercises match the lesson's objectives</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-11" onchange="showSliderValue('slider-11', 'value-11')">
+                    <input name="q12" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-11" onchange="showSliderValue('slider-11', 'value-11')">
                 </div>
             </div>
             <div class="two wide field">
@@ -312,9 +312,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">3. Uses instructional materials effectively</label>
+                <label for="">13. Uses instructional materials effectively</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-12" onchange="showSliderValue('slider-12', 'value-12')">
+                    <input name="q13" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-12" onchange="showSliderValue('slider-12', 'value-12')">
                 </div>
             </div>
             <div class="two wide field">
@@ -332,9 +332,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">Knows the subject matter very well and explains it with depth</label>
+                <label for="">14. Knows the subject matter very well and explains it with depth</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-13" onchange="showSliderValue('slider-13', 'value-13')">
+                    <input name="q14" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-13" onchange="showSliderValue('slider-13', 'value-13')">
                 </div>
             </div>
             <div class="two wide field">
@@ -352,9 +352,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">Shows he/she is updated on the latest developments in the field</label>
+                <label for="">15. Shows he/she is updated on the latest developments in the field</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-14" onchange="showSliderValue('slider-14', 'value-14')">
+                    <input name="q15" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-14" onchange="showSliderValue('slider-14', 'value-14')">
                 </div>
             </div>
             <div class="two wide field">
@@ -372,9 +372,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">Appears comfortable in handling the class</label>
+                <label for="">16. Appears comfortable in handling the class</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-15" onchange="showSliderValue('slider-15', 'value-15')">
+                    <input name="q16" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-15" onchange="showSliderValue('slider-15', 'value-15')">
                 </div>
             </div>
             <div class="two wide field">
@@ -392,9 +392,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">1. Expresses his/her ideas clearly</label>
+                <label for="">17. Expresses his/her ideas clearly</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-16" onchange="showSliderValue('slider-16', 'value-16')">
+                    <input name="q17" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-16" onchange="showSliderValue('slider-16', 'value-16')">
                 </div>
             </div>
             <div class="two wide field">
@@ -410,9 +410,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">2. Uses correct grammar and has command of the language of instruction and has clear pronunciation and diction</label>
+                <label for="">18. Uses correct grammar and has command of the language of instruction and has clear pronunciation and diction</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-17" onchange="showSliderValue('slider-17', 'value-17')">
+                    <input name="q18" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-17" onchange="showSliderValue('slider-17', 'value-17')">
                 </div>
             </div>
             <div class="two wide field">
@@ -430,9 +430,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">Diligently attends all class sessions on time and as scheduled</label>
+                <label for="">19. Diligently attends all class sessions on time and as scheduled</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-19" onchange="showSliderValue('slider-19', 'value-19')">
+                    <input name="q19" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-19" onchange="showSliderValue('slider-19', 'value-19')">
                 </div>
             </div>
             <div class="two wide field">
@@ -450,9 +450,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">1. Starts and ends the class on time</label>
+                <label for="">20. Starts and ends the class on time</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-20" onchange="showSliderValue('slider-20', 'value-20')">
+                    <input name="q20" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-20" onchange="showSliderValue('slider-20', 'value-20')">
                 </div>
             </div>
             <div class="two wide field">
@@ -468,9 +468,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">2. Sequences lessions in such a way that the use of time is maximized</label>
+                <label for="">21. Sequences lessions in such a way that the use of time is maximized</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-21" onchange="showSliderValue('slider-21', 'value-21')">
+                    <input name="q21" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-21" onchange="showSliderValue('slider-21', 'value-21')">
                 </div>
             </div>
             <div class="two wide field">
@@ -488,9 +488,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">Shows consistency in word and deed</label>
+                <label for="">22. Shows consistency in word and deed</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-22" onchange="showSliderValue('slider-22', 'value-22')">
+                    <input name="q22" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-22" onchange="showSliderValue('slider-22', 'value-22')">
                 </div>
             </div>
             <div class="two wide field">
@@ -508,9 +508,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">Is able to command respect and discipline the class when necessary.</label>
+                <label for="">23. Is able to command respect and discipline the class when necessary.</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-23" onchange="showSliderValue('slider-23', 'value-23')">
+                    <input name="q23" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-23" onchange="showSliderValue('slider-23', 'value-23')">
                 </div>
             </div>
             <div class="two wide field">
@@ -528,9 +528,9 @@
                 </div>
             </div>
             <div class="thirteen wide field">
-                <label for="">He/She an asset to iACADEMY</label>
+                <label for="">24. He/She an asset to iACADEMY</label>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-24" onchange="showSliderValue('slider-24', 'value-24')">
+                    <input name="q24" type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-24" onchange="showSliderValue('slider-24', 'value-24')">
                 </div>
             </div>
             <div class="two wide field">

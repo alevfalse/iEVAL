@@ -54,7 +54,7 @@
 					
 					<button href="/auth/google" class="ui button fluid icon labeled red" id="googleMail"><i class="icon google"></i>Login using iACADEMY Gmail</button>
 					
-					<button type="button" class="ui button primary fluid" type="submit" id="LoginButton">Admin Login</button>
+					<button type="button" class="ui button primary fluid" id="LoginButton">Admin Login</button>
 					
 				</form>
 			</div><!-- formContainer -->
@@ -62,7 +62,7 @@
 					<!-- //////////////////////////////////////////////// MODAL //////////////////////////////////////////////////////////////////////////// -->
 					<div class="ui modal" id="adminLogin">
 						<div class="ui form" id="modal_formContainer">
-							<form action="/auth/login" POST"" method="POST">
+							<form action="/auth/login" method="POST">
 								<div class="login">
 									
 									<!-- TITLE -->
@@ -95,7 +95,7 @@
 										<input type="password" name="password" autocomplete="off" required="required">
 									</div>
 
-									<button href="/auth/login/admin" type="submit" class="ui button icon labeled blue">
+									<button type="submit" class="ui button icon labeled blue">
 										<i class="icon sign in"></i> Login
 									</button>
 								</div>

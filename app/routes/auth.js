@@ -1,36 +1,38 @@
 module.exports = function(router, passport) {
-    var User = require('../models/user.js');
+    var Student = require('../models/student');
+    var Admin = require('../models/admin.js');
 
     // LOGIN   ====================================================
     // localhost:8080/auth/
     router.get('/', function(req, res) {
-        res.render('login.ejs', {message: req.flash('loginMessage')});
+        res.redirect('/auth/login');
     })
 
-    router.post('/', passport.authenticate('local-login', {
-        successRedirect: '/profile',
-        failureRedirect: '/auth/',
-        failureFlash: true
-    }))
+    // localhost:8080/auth/login
+    router.get('/login', function(req, res) {
+        res.render('login.ejs', {message: req.flash('loginMessage')}
+    )})
+    
+    // localhost:8080/auth/google
+    router.get('/google', passport.authenticate('google', {scope: ['profile', 'email']}));
 
-    // SIGNUP   ===================================================
-    // localhost:8080/auth/signup
-    router.get('/signup', function(req, res) {
-        //                     if the passport authentication sends a message of failure
-        res.render('signup.ejs', {message: req.flash('signupMessage')}); 
-    })
-
-    router.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/auth',
-        failureRedirect: '/auth/signup',
+    // localhost:8080/auth/google/callback
+    router.get('/google/callback',
+        passport.authenticate('google', { successRedirect: '/deck', 
+                                          failureRedirect: '/auth/login' }));
+    
+    // localhost:8080/auth/login
+    router.post('/login', passport.authenticate('local-admin-login', {
+        successRedirect: '/deck',
+        failureRedirect: '/auth/login',
         failureFlash: true
     }));
 
     // LOGOUT  ===================================================
-    // localhost:8080/logout
+    // localhost:8080/auth/logout
     router.get('/logout', function(req, res) {
         req.logout();
-        res.redirect('/');
+        res.redirect('/auth');
     })
 
     // invalid GET url
