@@ -1,5 +1,5 @@
 module.exports = function(router, passport) {
-    var Student = require('../models/student');
+    var Student = require('../models/student.js');
     var Admin = require('../models/admin.js');
 
     // LOGIN   ====================================================
@@ -18,12 +18,12 @@ module.exports = function(router, passport) {
 
     // localhost:8080/auth/google/callback
     router.get('/google/callback',
-        passport.authenticate('google', { successRedirect: '/deck', 
+        passport.authenticate('google', { successRedirect: '/student_homepage', 
                                           failureRedirect: '/auth/login' }));
     
-    // localhost:8080/auth/login
+    // localhost:8080/auth/login for admin
     router.post('/login', passport.authenticate('local-admin-login', {
-        successRedirect: '/deck',
+        successRedirect: '/student_homepage',
         failureRedirect: '/auth/login',
         failureFlash: true
     }));
@@ -32,11 +32,6 @@ module.exports = function(router, passport) {
     // localhost:8080/auth/logout
     router.get('/logout', function(req, res) {
         req.logout();
-        res.redirect('/auth');
-    })
-
-    // invalid GET url
-    router.get('/*', function(req, res) {
         res.redirect('/auth');
     })
 }

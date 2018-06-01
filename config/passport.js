@@ -4,6 +4,7 @@ var configAuth = require('./auth.js');
 var fs = require('fs');
 var mongoose = require('mongoose');
 var Student = require('../app/models/student.js');
+var Admin = require('../app/models/admin.js');
 
 module.exports = function(passport) {
     passport.serializeUser(function(user, done) {
@@ -25,16 +26,22 @@ module.exports = function(passport) {
     },
     function(accessToken, refreshToken, profile, done) {
         process.nextTick(function(){
+            console.log(profile);
             Student.findOne({'google.id': profile.id}, function(err, user) {
                 if(err) return done(err);
-                if(user) return done(null, user);
-
+                if(user) {
+                    console.log(user.firstName + ' already exists. Logging in without creating a Student account in DB.');
+                    return done(null, user);
+                }
                 else {
                     var email = profile.emails[0].value;
                     var index = email.indexOf('@');
                     var studentID = email.substring(0,index)
+                    console.log('Email: ' + email);
+                    console.log('StudentID: ' + studentID);
                     // if the student id's length is not 9 or the email isn't an iacademy gmail
                     if (studentID.length != 9 || !email.includes('iacademy.edu.ph')) {
+                        console.log('Invalid studendID length or not an iacademy email.');
                         return done(null, false);
                     } else {
                         var newStudent = new Student({
@@ -53,7 +60,6 @@ module.exports = function(passport) {
                             console.log(newStudent);
                             return done(null, newStudent);
                         })
-                        console.log(profile);
                     }
                 }
             })
