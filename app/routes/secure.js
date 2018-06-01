@@ -65,7 +65,7 @@ module.exports = function(router) {
             Professor.find().sort({'lastName': 1}).exec(function(err, professors) {
                 if (err) throw err;
                 console.log(professors.length)
-                res.render('admin_homepage.ejs', {clx: classes, professors: professors});
+                res.render('admin_homepage.ejs', {classes: classes, professors: professors});
             })
         })
     })
