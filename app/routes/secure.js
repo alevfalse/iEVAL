@@ -22,40 +22,28 @@ module.exports = function(router) {
 
     // localhost:8080/
     router.get('/', function(req, res){
-        res.redirect('/deck');
+        res.redirect('/student_homepage');
     });
 
-    router.get('/deck', function(req, res){
+    router.get('/student_homepage', function(req, res){
         // finds a student using the user's id
-        Student.findById(req.user._id, function(err, student) {
-            if (err) {
+        Student.findById(req.user._id), function(err, student) {
+            if (err)
                 throw err;
-                res.redirect('/auth/logout');
-            } else if (student) { // if a student is found
-                res.render('deck.ejs', { student: req.user, admin: null });
-            } 
-            // else check if the user is an admin
-            else { 
-                Admin.findById(req.user._id, function(err, admin) {
-                    if (err) {
-                        throw err;
-                        res.redirect('/auth/logout');
-                    } else if (admin) {
-                        res.render('deck.ejs', { student: null, admin: req.user })
-                    } else {
-                        res.redirect('/auth/logout');
-                    }
-                })
+            if (student) { // if a student is found
+                res.render('student_homepage.ejs', { student: req.user, admin: null });
+            } else {
+                console.log('No student found on get /deck');
+                res.redirect('/auth');
             }
-        })
-    });
-
+    }})
+    /*
     // when a student presses the evaluate button on a class card
-    router.get('/evaluate/:_id', function(req, res) {
+    router.get('/evaluate/:id', function(req, res) {
         Professor.findById(req.params._id).exec(function(err, professor) {
             if (err) throw err;
 
-            Class.findById(req.params._id).populate('professor')
+            Class.findById(req.params.id).populate('professor')
             .exec(function(err, cls) {
                 if (err) {
                     throw err;
@@ -71,13 +59,12 @@ module.exports = function(router) {
         })
     })
 
-    // from form.ejs
-    router.post('/submit_evaluation/:_id', function(req, res) {
-        Professor.findById(req.params._id, function(err, professor) {
+    /* from form.ejs
+    router.post('/submit_evaluation/:id', function(req, res) {
+        Professor.findById(req.params.id, function(err, professor) {
 
         })
-    })
-
+    })*/
     /*User.find({'$or':[{'firstName': {'$regex': req.body.searchQuery, '$options':'i'}},
                         {'lastName': {'$regex': req.body.searchQuery, '$options':'i'}},
                         {'username': {'$regex': req.body.searchQuery, '$options':'i'}}]})*/

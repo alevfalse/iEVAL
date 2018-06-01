@@ -3,7 +3,7 @@ var Professor = require('./professor.js');
 var Student = require('./student.js');
 
 var ClassSchema = new mongoose.Schema({
-    _id: Number,
+    _id: String,
     course: {
         code: String,
         name: String,

@@ -4,7 +4,7 @@
 var express         = require('express');                                   // call express
 var mongoose        = require('mongoose').set('debug', true);               // schema and database connection
 var app             = express();                                            // define our app using express
-var port            = process.env.PORT || 5000;                             // set our port
+var port            = process.env.PORT || 8080;                             // set our port
 var authRouter      = express.Router();
 var secureRouter    = express.Router();  
 var session         = require('express-session');
