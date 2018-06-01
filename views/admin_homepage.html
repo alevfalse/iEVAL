@@ -11,7 +11,7 @@
 	<!-- semantic-ui styles -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" />
 	<!-- main css -->
-	<link rel="stylesheet" href="../public/css/admin.css">
+	<link rel="stylesheet" href="../public/css/admin_homepage.css">
 </head>
 
 <body>
@@ -87,12 +87,16 @@
 
 		<div class="resultsContainer">
 
-			<!-- THIS COMPONENT WILL BE LOOPED -->
+			<!-- CLASSCARD EJS -->
 			<div class="result">
 					<div class="ui card">
 				
 						<div class="content">
-							<div class="header">Course Code</div>
+							<div class="header" id="courseHeader">
+								Course Code
+								<p class="cardSection">SECTION</p>
+							</div>
+							
 							<div class="description">
 								<p>course name</p>
 							</div>
@@ -105,7 +109,6 @@
 							</div>
 							<div class="content">
 								<p class="transition hidden">Units: <strong>#units</strong></p>
-								<p class="transition hidden">Section: <strong>#section</strong></p>
 								<p class="transition hidden">Day: <strong>#day</strong></p>
 								<p class="transition hidden">Time: <strong>#time</strong></p>
 								<p class="transition hidden">Room: <strong>#room</strong></p>
@@ -115,7 +118,7 @@
 						</div>
 					</div>
 			</div>
-			<!-- THIS COMPONENT WILL BE LOOPED -->
+			<!-- CLASSCARD EJS -->
 
 		</div>
 

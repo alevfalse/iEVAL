@@ -23,7 +23,7 @@ body {
 }
 
 #facultyListButton {
-    position: absolute;
+    position: fixed;
     font-family: "Gotham Rounded", sans-serif;
     font-weight: bolder;
     font-size: 1.2em;
@@ -64,4 +64,20 @@ body {
 .result {
     border-radius: 10px;
     overflow: hidden;
+}
+
+#courseHeader {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    /* background-color: #5188ff; */
+    margin-bottom: -10px;
+}
+.courseCode {
+    font-size: 1.2em;
+}
+.cardSection {
+    justify-self: end;
+    font-size: 15px;
+    color: rgb(187, 187, 187);
 }
