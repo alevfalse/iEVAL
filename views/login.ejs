@@ -15,7 +15,7 @@
 
 
 	<!-- main css -->
-	<link rel="stylesheet" type="text/css" media="screen" href="/css/login.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../css/login.css" />
 
 </head>
 
@@ -32,13 +32,13 @@
 
 
 			<div class="formContainer">
-				<form action="/auth/" method="POST" class="ui form">
+				<div class="ui form" id="loginSegment">
 							
-							<!-- Brand -->
-							<div class="title">
-								<p id="iACADEMY">iACADEMY</p>
-								<p id="facultyEvalutation">Faculty Evaluation</p>
-							</div>
+					<!-- Brand -->
+					<div class="title">
+						<p id="iACADEMY">iACADEMY</p>
+						<p id="facultyEvalutation">Faculty Evaluation</p>
+					</div>
 
 					<!-- message/alert -->
 					<% if (locals.message) {
@@ -56,7 +56,7 @@
 					
 					<button type="button" class="ui button primary fluid" id="LoginButton">Admin Login</button>
 					
-				</form>
+				</div>
 			</div><!-- formContainer -->
 
 					<!-- //////////////////////////////////////////////// MODAL //////////////////////////////////////////////////////////////////////////// -->

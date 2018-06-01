@@ -54,12 +54,17 @@ display: grid;
 align-items: center;justify-content: center
 }
 
-form .title {
+#loginSegment {
+	width: 19em;
+	height: auto;
+}
+
+.title {
 	/* margin-bottom: 20px; */
 	/* background-color: white; */
 }
 
-form .title p {
+.title p {
 	font-family: "Quantify", sans-serif;
 	font-weight: bolder;
 	/* background-color: white; */
@@ -81,10 +86,7 @@ form .title p {
 	margin-bottom: 20px;
 }
 
-form {
-	width: 19em;
-	height: auto;
-}
+
 
 #username, #password {
 	font-size: 0.8em; color: #859CAB; letter-spacing: 1px; font-weight: normal;
