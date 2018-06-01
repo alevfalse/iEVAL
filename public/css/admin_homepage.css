@@ -36,9 +36,16 @@ body {
     color: #5188ff;
 }
 
+
+
+
+#topAttachedButton {
+    border-radius: 10px 10px 0px 0px;
+}
+
 #details {
     border-radius: 10px;
-    overflow: hidden;
+    /* overflow: hidden; */
     padding: 20px;
     width: 50em;
     height: auto;

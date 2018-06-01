@@ -1,0 +1,72 @@
+@import url('../components/fonts/gotham-rounded.css');
+
+* {
+   margin: 0px;
+   padding: 0px;
+}
+
+body {
+    height: auto;
+    background:-webkit-linear-gradient(top left, #365cae,rgb(66, 49, 130));
+    background-attachment: fixed;
+    background-repeat: repeat;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    width: 
+    height: auto;
+}
+
+#content {
+    /* background-color: rgba(255, 255, 255, 0.467); */
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    padding: 50px;
+}
+
+#studentCard {
+    position: fixed;
+    top: 10em;
+    left: 2em;
+    z-index: 2;
+}
+
+#courseHeader {
+    font-size: 2em;
+}
+
+
+
+
+
+#cardsContainerHeader {
+    font-size: 5em;
+    color: white;
+    /* margin-bottom: 40px; */
+    margin-left: 50px;
+    margin-top: 60px;
+}
+
+.cardsContainer {
+    display: grid;
+    width: auto;
+    /* background-color: rgba(255, 255, 255, 0.357); */
+    margin-left: 20em;
+    /* margin-top: 5em; */
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+}
+
+#courseHeader {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.cardSection {
+    justify-self: end;
+    font-size: 15px;
+
+}

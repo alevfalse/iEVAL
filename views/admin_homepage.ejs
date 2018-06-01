@@ -39,7 +39,7 @@
 						<input type="text" name="courseUnits" placeholder="Units" require="required">
 					</div>
 				</div>
-				
+
 				<div class="fields">
 					<div class="six wide field">
 						<label for="">Section</label>
@@ -61,16 +61,20 @@
 					</div>
 				</div>
 			</div>
-		
-			<div class="ui dividing header">Faculty</div> <!-- ========================================================================================= -->
+
+			<div class="ui dividing header">Faculty</div>
+			<!-- ========================================================================================= -->
 			<div class="professorDetails">
-				<div class="inline fields">
-					<label for="">Faculty Name</label>
-					<div class="eight wide field">
-						<input type="text" name="firstName" placeholder="First Name" require="required">
-					</div>
-					<div class="eight wide field">
-						<input type="text" name="lastName" placeholder="Last Name" require="required">
+				<div class="fields">
+					<div class="ui fluid selection dropdown">
+						<input type="hidden" name="user">
+						<i class="dropdown icon"></i>
+						<div class="default text">Select Faculty</div>
+						<div class="menu">
+							<!-- loop -->
+							<div class="item" data-value="Faculty Name value"> *Faculty Name* </div>
+							<!-- loop -->
+						</div>
 					</div>
 				</div>
 			</div>
@@ -81,7 +85,28 @@
 			</div>
 		</form>
 
-		
+
+
+		<form action="/add_faculty" method="POST" class="ui form" id="details">
+			<div class="ui top attached label" id="topAttachedButton">Admin | Add Faculty Member</div>
+			<div class="courseDetails">
+				<div class="fields">
+					<div class="eight wide field">
+						<input type="text" name="firstName" placeholder="First Name" require="required">
+					</div>
+					<div class="eight wide field">
+						<input type="text" name="lastName" placeholder="Last Name" require="required">
+					</div>
+				</div>
+			</div>
+
+			<div class="ui two bottom attached buttons">
+				<button type="submit" class="ui button primary">Add Faculty Member</button>
+				<button type="reset" class="ui button">Clear</button>
+			</div>
+		</form>
+
+
 
 
 
@@ -97,33 +122,42 @@
 			
 			<!--
 			<div class="result">
-					<div class="ui card">
-				
+				<div class="ui card">
+
+					<div class="content">
+						<div class="header" id="courseHeader">
+							Course Code
+							<p class="cardSection">SECTION</p>
+						</div>
+
+						<div class="description">
+							<p>course name</p>
+						</div>
+					</div>
+
+					<div class="ui styled fluid accordion">
+						<div class="title">
+							<i class="dropdown icon"></i>
+							Show Details
+						</div>
 						<div class="content">
-							<div class="header" id="courseHeader">
-								Course Code
-								<p class="cardSection">SECTION</p>
-							</div>
-							
-							<div class="description">
-								<p>course name</p>
-							</div>
+							<p class="transition hidden">Units:
+								<strong>#units</strong>
+							</p>
+							<p class="transition hidden">Day:
+								<strong>#day</strong>
+							</p>
+							<p class="transition hidden">Time:
+								<strong>#time</strong>
+							</p>
+							<p class="transition hidden">Room:
+								<strong>#room</strong>
+							</p>
+							<p class="transition hidden">Faculty:
+								<strong>#faculty</strong>
+							</p>
 						</div>
-				
-						<div class="ui styled fluid accordion">
-							<div class="title">
-								<i class="dropdown icon"></i>
-								Show Details
-							</div>
-							<div class="content">
-								<p class="transition hidden">Units: <strong>#units</strong></p>
-								<p class="transition hidden">Day: <strong>#day</strong></p>
-								<p class="transition hidden">Time: <strong>#time</strong></p>
-								<p class="transition hidden">Room: <strong>#room</strong></p>
-								<p class="transition hidden">Faculty: <strong>#faculty</strong></p>
-							</div>
-							
-						</div>
+
 					</div>
 			</div>-->
 			<!-- CLASSCARD EJS -->
@@ -132,7 +166,8 @@
 
 
 
-</div> <!-- id="content" -->
+	</div>
+	<!-- id="content" -->
 
 
 
@@ -144,10 +179,14 @@
 
 <!-- ======= MAIN SCRIPTS ========================================================================================================================== -->
 <script>
-$('.ui.accordion')
-  .accordion()
-;
 
+$('.ui.accordion')
+	.accordion()
+	;
+
+$('.ui.dropdown')
+	.dropdown()
+;	
 
 
 </script>
@@ -156,4 +195,5 @@ $('.ui.accordion')
 
 
 </body>
+
 </html>
