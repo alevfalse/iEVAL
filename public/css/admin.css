@@ -1,0 +1,14 @@
+@import url('../components/fonts/gotham-rounded.css');
+
+* {
+   margin: 0px;
+   padding: 0px;
+}
+
+body {
+    height: auto;
+    width: 100%;
+    background: -webkit-linear-gradient(top left, #5188ff,#6C4ED5);
+    background-attachment: fixed;
+    background-repeat: repeat;
+}

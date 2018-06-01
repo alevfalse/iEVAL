@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="shortcut icon" href="images/favicon.ico" />
+	<title>iACADEMY Admin</title>
+
+	<!-- semantic-ui styles -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" />
+	<!-- main css -->
+	<link rel="stylesheet" href="../public/css/admin.css">
+</head>
+
+<body>
+
+	<div id="content">
+		<div class="ui form" id="details">
+			<div class="ui top attached label">Class Description</div>
+			<div class="courseDetails">
+				<div class="fields">
+					<div class="three wide field">
+						<label for=""><%= cls.course.code %></label>
+						<input type="text" readonly="readonly" name="" id="">
+					</div>
+					<div class="eleven wide field">
+						<label for=""><%= cls.course.name %></label>
+						<input type="text" readonly="readonly" name="" id="">
+					</div>
+					<div class="two wide field">
+						<label for=""><%= cls.course.units %></label>
+						<input type="text" readonly="readonly" name="" id="">
+					</div>
+				</div>
+				
+				<div class="fields">
+					<div class="six wide field">
+						<label for=""><%= cls.course.units %></label>
+						<input type="text" readonly="readonly" name="" id="">
+					</div>
+					<div class="fields">
+						<div class="field">
+							<label><%= cls.schedule.day %></label>
+							<input type="text" placeholder="">
+						</div>
+						<div class="field">
+							<label for=""><%= cls.schedule.time %></label>
+							<input type="text" placeholder="">
+						</div>
+						<div class="field">
+							<label for=""><%= cls.schedule.room %></label>
+							<input type="text" placeholder="">
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="ui dividing header">Faculty:</div> <!-- ========================================================================================= -->
+			<div class="professorDetails">
+				<h1 class="head">
+					<a href=""><%= cls.professor.firstName %> <%= cls.professor.lastName %>></a>
+				</h1>
+			</div>
+		</div>
+	</div>
+
+
+
+<!-- ======= SEMANTIC UI SCRIPTS ========================================================================================================================== -->
+<!-- jquery should be above the semantic.js due to having dependencies -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- semantic-ui javascript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+
+<!-- ======= MAIN SCRIPTS ========================================================================================================================== -->
+<script>
+
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
