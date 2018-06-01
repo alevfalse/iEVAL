@@ -8,7 +8,7 @@
 }
 
 body {
-   background: -webkit-linear-gradient(top left, #6DC4FF, #39A0E4) no-repeat;
+   background: -webkit-linear-gradient(top left, rgb(69, 73, 179), rgb(25, 41, 106)) no-repeat;
    background-size: cover;
    background-attachment: fixed;
    width: 100%;
@@ -19,11 +19,11 @@ body {
 }
 
 .loginContainer {
-   background-color: #6C4ED5;
-   width: 45em;
+   background-color: #4441ed;
+   width: 50em;
    height: 35em;
    display: grid;
-   grid-template-columns: 1.3fr 1fr;
+   grid-template-columns: 1.2fr 1fr;
    border-radius: 10px;
    box-shadow: 0px 3px 6px #0000004a;
 }
@@ -48,28 +48,41 @@ body {
 
 
 .formContainer {
-   background-color: #E4F1FA;
+   background-color: rgba(0, 0, 0, 0.741);
    border-radius: 0px 10px 10px 0px;  
    display: grid;
    align-items: center;justify-content: center
 }
 
       form .title {
-         margin-bottom: 20px;
+         /* margin-bottom: 20px; */
+         /* background-color: white; */
       }
 
-      form .title h1 {
-         font-family: "Gotham Rounded", sans-serif;
+      form .title p {
+         font-family: "Quantify", sans-serif;
          font-weight: bolder;
          /* background-color: white; */
          text-align: center;
          color: #859CAB;
          width: auto;
-         margin-bottom: 10px;
+         padding: 0px;
+      }
+
+      #iACADEMY {
+		  color: #E4F1FA;
+		  font-size: 3em;
+		  padding-bottom: 0px;
+		  margin-bottom: -10px;
+      }
+
+      #facultyEvalutation {
+		  font-size: 1.5em;
+		  margin-bottom: 20px;
       }
 
       form {
-         width: 16em;
+         width: 19em;
          height: auto;
       }
       
@@ -78,8 +91,9 @@ body {
       }
       
       #LoginButton {
-         background-color: #6CC3FE;
-         color: white;
+         /* background-color: #6CC3FE; */
+		 color: white;
+		 margin-bottom: 10px;
       }
       #LoginButton:hover {
          background-color: #64afe1;
@@ -94,5 +108,7 @@ body {
             background-color: #543da7;
       }
       #googleMail {
-            margin-top: 8px;
-      }
+			margin-bottom: 10px;
+			margin-top: 8px;
+			width: 100%;
+	  }

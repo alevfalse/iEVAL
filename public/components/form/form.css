@@ -13,7 +13,7 @@ body {
     display: grid;
     justify-items: center;
     align-items: center;
-    height: 100vh;
+    height: auto;
 }
 
 
@@ -27,13 +27,23 @@ body {
     display: grid;
     justify-items: center;
     padding-top: 5em;
- }
+    padding-bottom: 50px;
+}
+
+.facultyDetails {
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 20px;
+    width: 50em;
+    background-color: rgb(255, 255, 255);
+}
 
  .evalutation_form {
      border-radius: 10px;
+     overflow: hidden;
      padding: 20px;
      width: 50em;
-     background-color: white;
+     background-color: rgb(255, 255, 255);
  }
 
 
@@ -46,10 +56,10 @@ body {
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
     width: 100%; /* Full-width */
-    height: 1.3em; /* Specified height */
-    background: #dadada; /* Grey background */
+    height: 1em; /* Specified height */
+    background: linear-gradient(to right, #fd2121, orange, #7fff00);
     outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    opacity: 0.5; /* Set transparency (for mouse-over effects on hover) */
     -webkit-transition: .2s; /* 0.2 seconds transition on hover */
     transition: opacity .2s;
     border-radius: 500px;
@@ -64,9 +74,10 @@ body {
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
-    width: 1em; /* Set a specific slider handle width */
-    height: 1em; /* Slider handle height */
-    background: gray; /* Green background */
+    width: 1.2em; /* Set a specific slider handle width */
+    height: 1.2em; /* Slider handle height */
+    background: #ffffff; /* Green background */
+    box-shadow: 0px 2px 10px rgb(191, 191, 191);
     cursor: pointer; /* Cursor on hover */
     border-radius: 500em;
 }
@@ -76,4 +87,23 @@ body {
     height: 25px; /* Slider handle height */
     background: #4CAF50; /* Green background */
     cursor: pointer; /* Cursor on hover */
+}
+
+
+
+
+.output {
+    /* background-color: #fd2121; */
+    width: 100%;
+    height: 100%;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    /* font-family: "Gotham Rounded", sans-serif; */
+    color: rgb(255, 255, 255);
+    background-color: #FFE854;
+    font-size: 1.5em;
+    font-weight: bold;
+    /* border: 1px solid black; */
+    border-radius: 5px;
 }

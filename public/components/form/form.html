@@ -19,52 +19,430 @@
 
 
 <div class="content">
+    <div class="ui segment facultyDetails">
+        <div class="ui top attached label">
+            Faculty Evaluation Form
+        </div>
+    </div>
+
+
+
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
     <form action="" method="POST" class="ui form evalutation_form">
         <div class="ui top attached label">
-            FORM
-        </div>
-        <div class="field">
-            <label for="">Faculty Name</label>
-            <input type="text" readonly>
+            Faculty Evaluation Form
         </div>
 
-        <div class="two fields">
-            <div class="ten wide field">
-                <label for="">Course</label>
-                <input type="text" readonly>
+        <div class="ui dividing header">Respect</div> <!-- ========================================================================================= -->
+        
+        <!-- Question 1 -->
+        <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-1" onclick="notApplicable('na-1','slider-1', 'value-1')">
+                    NA
+                </div>
             </div>
-            <div class="six wide field">
-                <label for="">Subject</label>
-                <input type="text" readonly>
-            </div>
-        </div>
-        <div class="three fields">
-            <div class="two wide field">
-                <label for="">Term</label>
-                <input type="text" readonly>
-            </div>
-            <div class="six wide field">
-                <label for="">School Year</label>
-                <input type="text" readonly>
-            </div>
-            <div class="eight wide field">
-                <label for="">Day/Time</label>
-                <input type="text" readonly>
-            </div>
-        </div>
-
-        <div class="ui dividing header">Dividing Header</div>
-        <div class="ui fields">
-            <div class="fourteen wide field">
-                <label for="">bdfbdfb</label>
-                <div class="slidecontainer eight wide">
-                    <input type="range" min="1" max="100" value="50" class="slider">
+            <div class="thirteen wide field">
+                <label for="">1. Shows respect for the student</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-1" onchange="showSliderValue('slider-1', 'value-1')">
                 </div>
             </div>
             <div class="two wide field">
-                <input type="number" name="">
+                <p id="value-1" class="output">3</p>
             </div>
+        </div>
+
+        <div class="ui dividing header">Encouragement/Motivation</div> <!-- ======================================================================= -->
+
+        <!-- Question 2 -->
+        <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-2" onclick="notApplicable('na-2','slider-2', 'value-2')">
+                    NA
+                </div>
             </div>
+            <div class="thirteen wide field">
+                <label for="">1. Encourages students to express their ideas</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-2" onchange="showSliderValue('slider-2', 'value-2')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-2" class="output">3</p>
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-3" onclick="notApplicable('na-3','slider-3', 'value-3')">
+                    NA
+                </div>
+            </div>
+            <div class="thirteen wide field">
+                <label for="">2. Motivates students to continue learning even outside the classroom</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-3" onchange="showSliderValue('slider-3', 'value-3')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-3" class="output">3</p>
+            </div>
+        </div>
+
+        <div class="ui dividing header">Fairness & Transparency</div> <!-- ======================================================================= -->
+
+        <!-- Question 5 -->
+        <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-5" onclick="notApplicable('na-5','slider-5', 'value-5')">
+                    NA
+                </div>
+            </div>
+            <div class="thirteen wide field">
+                <label for="">1. Give everyone a chance to participate in class activites.</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-5" onchange="showSliderValue('slider-5', 'value-5')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-5" class="output">3</p>
+            </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-6" onclick="notApplicable('na-6','slider-6', 'value-6')">
+                    NA
+                </div>
+            </div>
+            <div class="thirteen wide field">
+                <label for="">2. Tells students how their perfomance is evaluated and gives feedback.</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-6" onchange="showSliderValue('slider-6', 'value-6')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-6" class="output">3</p>
+            </div>
+        </div>
+        
+        <div class="ui dividing header">Teaching Skills</div> <!-- ======================================================================= -->
+        
+        <!-- Question 8 -->
+        <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-8" onclick="notApplicable('na-8','slider-8', 'value-8')">
+                    NA
+                </div>
+            </div>
+            <div class="thirteen wide field">
+                <label for="">1. Uses varied teachniques and activites to enhance learning.</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-8" onchange="showSliderValue('slider-8', 'value-8')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-8" class="output">3</p>
+            </div>
+        </div>
+        
+        <!-- Question 9 -->
+        <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-9" onclick="notApplicable('na-9','slider-9', 'value-9')">
+                    NA
+                </div>
+            </div>
+            <div class="thirteen wide field">
+                <label for="">2. Paraphrases concepts or uses examples to help students understand the lesson.</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-9" onchange="showSliderValue('slider-9', 'value-9')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-9" class="output">3</p>
+            </div>
+        </div>
+        
+        <div class="ui dividing header">Lesson Presenation</div> <!-- ======================================================================= -->
+
+        <!-- Question 10 -->
+        <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-10" onclick="notApplicable('na-10','slider-10', 'value-10')">
+                    NA
+                </div>
+            </div>
+            <div class="thirteen wide field">
+                <label for="">1. Presents the lessons in a clear and organized manner</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-10" onchange="showSliderValue('slider-10', 'value-10')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-10" class="output">3</p>
+            </div>
+        </div>
+
+        <!-- Question 11 -->
+        <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-11" onclick="notApplicable('na-11','slider-11', 'value-11')">
+                    NA
+                </div>
+            </div>
+            <div class="thirteen wide field">
+                <label for="">2. Makes sure the activities and exercises match the lesson's objectives</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-11" onchange="showSliderValue('slider-11', 'value-11')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-11" class="output">3</p>
+            </div>
+        </div>
+
+        <!-- Question 12 -->
+        <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-12" onclick="notApplicable('na-12','slider-12', 'value-12')">
+                    NA
+                </div>
+            </div>
+            <div class="thirteen wide field">
+                <label for="">3. Uses instructional materials effectively</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-12" onchange="showSliderValue('slider-12', 'value-12')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-12" class="output">3</p>
+            </div>
+        </div>
+        
+        <div class="ui dividing header">Mastery</div> <!-- ======================================================================= -->
+
+         <!-- Question 13 -->
+         <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-13" onclick="notApplicable('na-13','slider-13', 'value-13')">
+                    NA
+                </div>
+            </div>
+            <div class="thirteen wide field">
+                <label for="">Knows the subject matter very well and explains it with depth</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-13" onchange="showSliderValue('slider-13', 'value-13')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-13" class="output">3</p>
+            </div>
+        </div>
+
+        <div class="ui dividing header">Updated</div> <!-- ======================================================================= -->        
+
+         <!-- Question 14 -->
+         <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-14" onclick="notApplicable('na-14','slider-14', 'value-14')">
+                    NA
+                </div>
+            </div>
+            <div class="thirteen wide field">
+                <label for="">Shows he/she is updated on the latest developments in the field</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-14" onchange="showSliderValue('slider-14', 'value-14')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-14" class="output">3</p>
+            </div>
+        </div>
+
+        <div class="ui dividing header">Confidfence</div> <!-- ======================================================================= -->        
+
+        <!-- Question 15 -->
+        <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-15" onclick="notApplicable('na-15','slider-15', 'value-15')">
+                    NA
+                </div>
+            </div>
+            <div class="thirteen wide field">
+                <label for="">Appears comfortable in handling the class</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-15" onchange="showSliderValue('slider-15', 'value-15')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-15" class="output">3</p>
+            </div>
+        </div>
+        
+        <div class="ui dividing header">Communication</div> <!-- ======================================================================= -->
+
+        <!-- Question 16 -->
+        <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-16" onclick="notApplicable('na-16','slider-16', 'value-16')">
+                    NA
+                </div>
+            </div>
+            <div class="thirteen wide field">
+                <label for="">1. Expresses his/her ideas clearly</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-16" onchange="showSliderValue('slider-16', 'value-16')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-16" class="output">3</p>
+            </div>
+        </div>
+
+        <!-- Question 17 -->
+        <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-17" onclick="notApplicable('na-17','slider-17', 'value-17')">
+                    NA
+                </div>
+            </div>
+            <div class="thirteen wide field">
+                <label for="">2. Uses correct grammar and has command of the language of instruction and has clear pronunciation and diction</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-17" onchange="showSliderValue('slider-17', 'value-17')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-17" class="output">3</p>
+            </div>
+        </div>
+
+        <div class="ui dividing header">Punctuality</div> <!-- ======================================================================= -->
+
+        <!-- Question 19 -->
+        <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-19" onclick="notApplicable('na-19','slider-19', 'value-19')">
+                    NA
+                </div>
+            </div>
+            <div class="thirteen wide field">
+                <label for="">Diligently attends all class sessions on time and as scheduled</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-19" onchange="showSliderValue('slider-19', 'value-19')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-19" class="output">3</p>
+            </div>
+        </div>
+
+        <div class="ui dividing header">Time Management</div> <!-- ======================================================================= -->
+
+        <!-- Question 20 -->
+        <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-20" onclick="notApplicable('na-20','slider-20', 'value-20')">
+                    NA
+                </div>
+            </div>
+            <div class="thirteen wide field">
+                <label for="">1. Starts and ends the class on time</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-20" onchange="showSliderValue('slider-20', 'value-20')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-20" class="output">3</p>
+            </div>
+        </div>
+
+        <!-- Question 21 -->
+        <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-21" onclick="notApplicable('na-21','slider-21', 'value-21')">
+                    NA
+                </div>
+            </div>
+            <div class="thirteen wide field">
+                <label for="">2. Sequences lessions in such a way that the use of time is maximized</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-21" onchange="showSliderValue('slider-21', 'value-21')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-21" class="output">3</p>
+            </div>
+        </div>
+
+        <div class="ui dividing header">Consitency</div> <!-- ======================================================================= -->
+
+        <!-- Question 22 -->
+        <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-22" onclick="notApplicable('na-22','slider-22', 'value-22')">
+                    NA
+                </div>
+            </div>
+            <div class="thirteen wide field">
+                <label for="">Shows consistency in word and deed</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-22" onchange="showSliderValue('slider-22', 'value-22')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-22" class="output">3</p>
+            </div>
+        </div>
+
+        <div class="ui dividing header">Classroom Management</div> <!-- ======================================================================= -->
+
+        <!-- Question 23 -->
+        <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-23" onclick="notApplicable('na-23','slider-23', 'value-23')">
+                    NA
+                </div>
+            </div>
+            <div class="thirteen wide field">
+                <label for="">Is able to command respect and discipline the class when necessary.</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-23" onchange="showSliderValue('slider-23', 'value-23')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-23" class="output">3</p>
+            </div>
+        </div>
+
+        <div class="ui dividing header">Asset</div> <!-- ======================================================================= -->
+        
+        <!-- Question 24 -->
+        <div class="fields">
+            <div class="field">
+                <div class="ui button default compact nabutton" id="na-24" onclick="notApplicable('na-24','slider-24', 'value-24')">
+                    NA
+                </div>
+            </div>
+            <div class="thirteen wide field">
+                <label for="">He/She an asset to iACADEMY</label>
+                <div class="slidecontainer">
+                    <input type="range" min="1" max="5" step="1" value="3" class="slider" id="slider-24" onchange="showSliderValue('slider-24', 'value-24')">
+                </div>
+            </div>
+            <div class="two wide field">
+                <p id="value-24" class="output">3</p>
+            </div>
+        </div>
+        
+        <div class="ui divider"></div> <!-- ================================================================================================================= -->
+
+        <div class="ui bottom attached segment">
+            <Button type="submit" value="" class="ui button teal fluid"><i class="icon check"></i>Submit</Button>
         </div>
     </form>
 </div><!-- id="content" -->
@@ -113,6 +491,55 @@ $('.ui.accordion')
 $('.ui.modal')
   .modal('attach events','.editTrigger','show')
 ;
+
+function showSliderValue(sliderId, outputId) {
+    var output = document.getElementById(outputId);
+    var slider = document.getElementById(sliderId);
+
+    output.innerHTML = slider.value;
+
+   if(slider.value == 1) {
+        output.style.backgroundColor = "#FF4646";
+    } else if (slider.value == 2) {
+        output.style.backgroundColor = "#FFB950";
+    } else if (slider.value == 3) {
+        output.style.backgroundColor = "#FFE854";
+    } else if (slider.value == 4) {
+        output.style.backgroundColor = "#ABFF4B";
+    } else if (slider.value == 5) {
+        output.style.backgroundColor = "#6AFC87";
+    }
+}
+
+function notApplicable(buttonId, sliderId, outputId) {
+    var output = document.getElementById(outputId);
+    var button = document.getElementById(buttonId);
+    var slider = document.getElementById(sliderId);
+
+    button.classList.toggle('red');
+
+    if(slider.hasAttribute('disabled')) {
+        slider.removeAttribute('disabled');
+        output.innerHTML = slider.value;
+        
+        if(slider.value == 1) {
+            output.style.backgroundColor = "#FF4646";
+        } else if (slider.value == 2) {
+            output.style.backgroundColor = "#FFB950";
+        } else if (slider.value == 3) {
+            output.style.backgroundColor = "#FFE854";
+        } else if (slider.value == 4) {
+            output.style.backgroundColor = "#ABFF4B";
+        } else if (slider.value == 5) {
+            output.style.backgroundColor = "#6AFC87";
+        }
+    } else {
+        output.innerHTML = "";
+        slider.setAttribute('disabled', 'disabled');
+        output.style.backgroundColor = "transparent";
+    }
+}
+
 </script>
 </body>
 

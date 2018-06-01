@@ -37,7 +37,8 @@
 							
 							<!-- Brand -->
 							<div class="title">
-								<h1>iACADEMY Evaluation</h1>
+								<p id="iACADEMY">iACADEMY</p>
+								<p id="facultyEvalutation">Faculty Evaluation</p>
 							</div>
 
 							<!-- message/alert -->
@@ -52,22 +53,24 @@
 								<%}
 							}%>
 
-							<!-- username -->
-							<div class="field">
+					<!-- username -->
+					<!-- <div class="field">
 						<label id="username">EMAIL ADDRESS</label>
 						<input type="text" name="email" autocomplete="off" required="required">
-					</div>
+					</div> -->
 
 					<!-- password -->
-					<div class="field">
+					<!-- <div class="field">
 						<label id="password">PASSWORD</label>
 						<input type="password" name="password" autocomplete="off" required="required">
-					</div>
+					</div> -->
 
 					<!-- login button -->
-					<button class="ui button fluid" type="submit" id="LoginButton">Login</button>
+					<!-- <button class="ui button primary fluid" type="submit" id="LoginButton">Login</button> -->
 					<!-- <a href="/auth/signup" class="ui button fluid" id="registerButton">Sign up for an account?</a> -->
-					<a href="/auth/google" class="ui button fluid icon labeled red" id="googleMail"><i class="icon google"></i> iACADEMY Gmail</a>
+					<a href="/auth/google" class="ui button fluid icon labeled red" id="googleMail"><i class="icon google"></i>Login using iACADEMY Gmail</a>
+						  
+					<button href="/auth/login/admin" class="ui button primary fluid" type="submit" id="LoginButton">Admin Login</button>
 					
 
 				</form>
