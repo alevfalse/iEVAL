@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 
 var ProfessorSchema = new mongoose.Schema({
-    _id: String,
+    _id: mongoose.Schema.Types.ObjectId,
     firstName: String,
     lastName: String,
-    numberEvaluated: Number,
+    numberEvaluated: {type: Number, default: 0},
     attr: {
         approachability: {type: Number, default: 0},
         respect: {type: Number, default: 0},

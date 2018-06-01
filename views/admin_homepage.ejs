@@ -11,53 +11,52 @@
 	<!-- semantic-ui styles -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" />
 	<!-- main css -->
-	<link rel="stylesheet" href="../public/css/admin_homepage.css">
+	<link rel="stylesheet" href="/css/admin_homepage.css">
 </head>
 
 <body>
 
 <div id="content">
 
-		<a class="ui button icon labled" href="/" id="facultyListButton">
+		<a class="ui button icon labled" href="/faculty_list" id="facultyListButton">
 			<i class="icon user circle"></i> See Full Faculty List
 		</a>
 
-
-		<form action="/" method="POST" class="ui form" id="details">
-			<div class="ui top attached label" id="topAttachedButton">Admin | Create-A-Class</div>
+		<form action="/create_class" method="POST" class="ui form" id="details">
+			<div class="ui top attached label">Admin | Create-A-Class</div>
 			<div class="courseDetails">
 				<div class="fields">
 					<div class="three wide field">
 						<label for="">Course Code</label>
-						<input type="text" name="" placeholder="Course Code">
+						<input type="text" name="courseCode" placeholder="Course Code" require="required">
 					</div>
 					<div class="eleven wide field">
 						<label for="">Course Name</label>
-						<input type="text" name="" placeholder="Enter Course Name">
+						<input type="text" name="courseName" placeholder="Enter Course Name" require="required">
 					</div>
 					<div class="two wide field">
 						<label for="">Units</label>
-						<input type="text" name="" placeholder="Units">
+						<input type="text" name="courseUnits" placeholder="Units" require="required">
 					</div>
 				</div>
 
 				<div class="fields">
 					<div class="six wide field">
 						<label for="">Section</label>
-						<input type="text" name="" placeholder="Enter Section">
+						<input type="text" name="section" placeholder="Enter Section" require="required">
 					</div>
 					<div class="fields">
 						<div class="field">
 							<label>Day</label>
-							<input type="text" placeholder="Enter Day">
+							<input type="text" name="day" placeholder="Enter Day" require="required">
 						</div>
 						<div class="field">
 							<label for="">Time</label>
-							<input type="text" placeholder="Enter Time">
+							<input type="text" name="time" placeholder="Enter Time" require="required">
 						</div>
 						<div class="field">
 							<label for="">Room</label>
-							<input type="text" placeholder="Enter Room">
+							<input type="text" name="room" placeholder="Enter Room" require="required">
 						</div>
 					</div>
 				</div>
@@ -93,12 +92,10 @@
 			<div class="courseDetails">
 				<div class="fields">
 					<div class="eight wide field">
-						<label for="">First Name</label>
-						<input type="text" name="" placeholder="Enter Faculty First Name">
+						<input type="text" name="firstName" placeholder="First Name" require="required">
 					</div>
 					<div class="eight wide field">
-						<label for="">Last Name</label>
-						<input type="text" name="" placeholder="Enter Faculty Last Name">
+						<input type="text" name="lastName" placeholder="Last Name" require="required">
 					</div>
 				</div>
 			</div>
@@ -114,8 +111,16 @@
 
 
 		<div class="resultsContainer">
-
+			
 			<!-- CLASSCARD EJS -->
+			<% 
+				if (locals.clx) {
+					console.log(clx.length);
+				}
+
+			%>
+			
+			<!--
 			<div class="result">
 				<div class="ui card">
 
@@ -154,10 +159,8 @@
 						</div>
 
 					</div>
-				</div>
-			</div>
+			</div>-->
 			<!-- CLASSCARD EJS -->
-
 		</div>
 
 
