@@ -9,7 +9,7 @@
 }
 
 #navbar {
-   background-Color: #6DC4FF;
+   background-Color: #222641;
    border-radius: 0px;
    font-family: "Gotham Rounded", sans-serif;
 }
@@ -34,8 +34,19 @@
     background-color: #6C4ED5;
 }
 
-#userAvatar {
-    height: 100%;
+#Logo {
+    font-family: "Quantify", sans-serif;
+}
+
+.facultyEvaluationLogo {
+    margin-left: 5px;
+    color: rgba(255, 255, 255, 0.46);
+}
+
+#iACADEMYLogoText {
+    padding: 0px;
+    margin: 0px;
+    font-size: 1.5em;
 }
 
 #redirectLink {

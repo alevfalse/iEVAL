@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="shortcut icon" href="/images/iACADEMY Seal.ico" />
+	<title>iACADEMY | Evaluation</title>
+
+	<!-- semantic-ui styles -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" />
+
+
+    <link rel="stylesheet" href="./navbar.css">
+
+	<!-- main css -->
+	<link rel="stylesheet" type="text/css" media="screen" href="./navbarhtml.css" />
+
+</head>
+
+<body>
+
+<div class="wrapper">
+                <!-- NAVIGATION BAR COMPONENT -->
+                <div id="navBarContainer">
+                    <div class="ui menu inverted" id="navbar">
+                        <div class="item" id="Logo">
+                            <p id="iACADEMYLogoText">iACADEMY</p>
+                            <span class="facultyEvaluationLogo">Faculty Evaluation</span>
+                        </div>
+                        <a href="/timeline" class="item" id="redirectLink">DISCOVER</a>
+                        <a href="/profile" class="item" id="redirectLink">PROFILE</a>
+                
+                        <!-- Search Suggestions -->
+                        <div class="ui dropdown item right" tabindex="0">
+                            <span id="userName">
+                                <strong>
+                                    <%=user.username%>
+                                </strong>
+                            </span>
+                            <div class="menu">
+                                <a href="/auth/logout" class="item">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div><!-- wrapper -->
+    
+    
+
+
+
+
+	
+<!-- ======= SEMANTIC UI SCRIPTS ========================================================================================================================== -->
+<!-- jquery should be above the semantic.js due to having dependencies -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- semantic-ui javascript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+
+<!-- ======= MAIN SCRIPTS ================================================================================================================================= -->
+<script>
+    $('.ui.dropdown')
+		.dropdown()
+    ;
+    
+	$('.close.icon')
+		.click(function(){
+			$('.ui.negative.message').hide();
+		})
+	;
+
+	$('#adminLogin')
+  		.modal('attach events', '#LoginButton', 'show')
+	;
+
+</script>
+
+</body>
+
+</html>
