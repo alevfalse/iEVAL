@@ -59,15 +59,19 @@ module.exports = function(router) {
     })
 
     router.get('/admin_homepage', function(req, res) {
-        Class.find().populate('professor').sort({'course.code': -1}).exec(function(err, classes) {
+        Class.find().populate('professor').sort({'course.code': 1}).exec(function(err, classes) {
             if (err) throw err;
             console.log(classes.length)
-            res.render('admin_homepage.ejs', {clx: classes});
+            Professor.find().sort({'lastName': 1}).exec(function(err, professors) {
+                if (err) throw err;
+                console.log(professors.length)
+                res.render('admin_homepage.ejs', {clx: classes, professors: professors});
+            })
         })
     })
 
     router.get('/faculty_list', function(req, res) {
-        Professor.find().sort({'lastName': -1}).exec(function(err, professors) {
+        Professor.find().sort({'lastName': 1}).exec(function(err, professors) {
             res.render('faculty_list.ejs', {professors: professors})})
     })
     // from form.ejs
@@ -80,52 +84,51 @@ module.exports = function(router) {
     // from form.ejs
     router.post('/create_class', function(req, res) {
         console.log(req.body);
-        Professor.findOne({'lastName': {'$regex': req.body.lastName, '$options':'i'}})
-            .exec(function(err, professor) {
-                if (err) throw err;
-                if (professor) {
+        console.log(professor);
+        var profId = professor._id;
+        var name = req.body.courseName;
+        var code = req.body.courseCode;
+        var units = req.body.courseUnits;
+        var section = req.body.section;
+        var day = req.body.day;
+        var time = req.body.time;
+        var room = req.body.room;
+        var professorId = req.body.professorId;
 
-                    console.log(professor);
-                    var profId = professor._id;
-                    var name = req.body.courseName;
-                    var code = req.body.courseCode;
-                    var units = req.body.courseUnits;
-                    var section = req.body.section;
-                    var day = req.body.day;
-                    var time = req.body.time;
-                    var room = req.body.room;
-                    var profId = req.body.profId;
+        var newClass = new Class({
+            course: {
+                code: code,
+                name: name,
+                units: units
+            },
+            section: section,
+            schedule: {
+                day: day,
+                time: time,
+                room: room
+            },
+            professor: professorId
+        })
 
-                    var newClass = new Class({
-                        course: {
-                            code: code,
-                            name: name,
-                            units: units
-                        },
-                        section: section,
-                        schedule: {
-                            day: day,
-                            time: time,
-                            room: room
-                        },
-                        professor: profId
-                    })
+        newClass.save(function(err, newClass) {
+            if (err) throw err;
+            console.log(newClass);
+        });
+        res.redirect('/admin_homepage');
+    })
 
-                    newClass.save();
-
-                } else {
-                    var newProf = new Professor({
-                        _id: new mongoose.Types.ObjectId(),
-                        firstName: req.body.firstName,
-                        lastName: req.body.lastName,
-                    })
-
-                    newProf.save(function(err, newProf) {
-                        if (err) throw err;
-                        console.log(newProf);
-                    })
-                } res.redirect('/admin_homepage');
-            })
+    router.post('/add_faculty', function(req, res) {
+        console.log(req.body);
+        var newProf = new Professor({
+            _id: new mongoose.Types.ObjectId(),
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+        })
+        newProf.save(function(err, newProf) {
+            if (err) throw err;
+            console.log(newProf);
+        })
+        res.redirect('/admin_homepage');
     })
 
     /*User.find({'$or':[{'firstName': {'$regex': req.body.searchQuery, '$options':'i'}},
