@@ -1,46 +1,46 @@
 @import url('../components/fonts/gotham-rounded.css');
 
 * {
-   padding: 0px;
-   margin: 0px;
-   font-family: "Gotham Rounded", sans-serif;
-   font-weight: normal;
+padding: 0px;
+margin: 0px;
+font-family: "Gotham Rounded", sans-serif;
+font-weight: normal;
 }
 
 body {
-   background: -webkit-linear-gradient(top left, rgb(69, 73, 179), rgb(25, 41, 106)) no-repeat;
-   background-size: cover;
-   background-attachment: fixed;
-   width: 100%;
-   height: 100%;
-   display: grid;
-   justify-items: center;
-   align-items: center;
+background: -webkit-linear-gradient(top left, rgb(69, 73, 179), rgb(25, 41, 106)) no-repeat;
+background-size: cover;
+background-attachment: fixed;
+width: 100%;
+height: 100%;
+display: grid;
+justify-items: center;
+align-items: center;
 }
 
 .loginContainer {
-   background-color: #4441ed;
-   width: 50em;
-   height: 35em;
-   display: grid;
-   grid-template-columns: 1.2fr 1fr;
-   border-radius: 10px;
-   box-shadow: 0px 3px 6px #0000004a;
+background-color: #4441ed;
+width: 50em;
+height: 35em;
+display: grid;
+grid-template-columns: 1.2fr 1fr;
+border-radius: 10px;
+box-shadow: 0px 3px 6px #0000004a;
 }
 
 
 
 
 .logoContainer {
-   /* background-color: #6DC4FF; */
-   justify-self: center;
-   align-self: center;
+/* background-color: #6DC4FF; */
+justify-self: center;
+align-self: center;
 }
 
 #SEAL {
-      width: 18em;
-      height: auto;
-      /* background-color: #543da7; */
+width: 18em;
+height: auto;
+/* background-color: #543da7; */
 }
 
 
@@ -48,67 +48,98 @@ body {
 
 
 .formContainer {
-   background-color: rgba(0, 0, 0, 0.741);
-   border-radius: 0px 10px 10px 0px;  
-   display: grid;
-   align-items: center;justify-content: center
+background-color: rgba(0, 0, 0, 0.741);
+border-radius: 0px 10px 10px 0px;  
+display: grid;
+align-items: center;justify-content: center
 }
 
-      form .title {
-         /* margin-bottom: 20px; */
-         /* background-color: white; */
-      }
+form .title {
+	/* margin-bottom: 20px; */
+	/* background-color: white; */
+}
 
-      form .title p {
-         font-family: "Quantify", sans-serif;
-         font-weight: bolder;
-         /* background-color: white; */
-         text-align: center;
-         color: #859CAB;
-         width: auto;
-         padding: 0px;
-      }
+form .title p {
+	font-family: "Quantify", sans-serif;
+	font-weight: bolder;
+	/* background-color: white; */
+	text-align: center;
+	color: #859CAB;
+	width: auto;
+	padding: 0px;
+}
 
-      #iACADEMY {
-		  color: #E4F1FA;
-		  font-size: 3em;
-		  padding-bottom: 0px;
-		  margin-bottom: -10px;
-      }
+#iACADEMY {
+	color: #E4F1FA;
+	font-size: 3em;
+	padding-bottom: 0px;
+	margin-bottom: -10px;
+}
 
-      #facultyEvalutation {
-		  font-size: 1.5em;
-		  margin-bottom: 20px;
-      }
+#facultyEvalutation {
+	font-size: 1.5em;
+	margin-bottom: 20px;
+}
 
-      form {
-         width: 19em;
-         height: auto;
-      }
-      
-      #username, #password {
-         font-size: 0.8em; color: #859CAB; letter-spacing: 1px; font-weight: normal;
-      }
-      
-      #LoginButton {
-         /* background-color: #6CC3FE; */
-		 color: white;
-		 margin-bottom: 10px;
-      }
-      #LoginButton:hover {
-         background-color: #64afe1;
-      }
+form {
+	width: 19em;
+	height: auto;
+}
 
-      #registerButton {
-            margin-top: 8px; 
-            background-color: #6C4ED5;
-            color: white;
-      }
-      #registerButton:hover {
-            background-color: #543da7;
-      }
-      #googleMail {
-			margin-bottom: 10px;
-			margin-top: 8px;
-			width: 100%;
-	  }
+#username, #password {
+	font-size: 0.8em; color: #859CAB; letter-spacing: 1px; font-weight: normal;
+}
+
+#LoginButton {
+	/* background-color: #6CC3FE; */
+	color: white;
+	margin-bottom: 10px;
+}
+#LoginButton:hover {
+	background-color: #64afe1;
+}
+
+#registerButton {
+	margin-top: 8px; 
+	background-color: #6C4ED5;
+	color: white;
+}
+#registerButton:hover {
+	background-color: #543da7;
+}
+#googleMail {
+	margin-bottom: 10px;
+	margin-top: 8px;
+	width: 100%;
+}
+
+
+
+
+/* MODAL ======================================================================================== */
+#closeModal {
+	position: absolute;
+	right: 0;
+	color: #859CAB;
+}
+#closeModal:hover {
+	color: rgb(71, 81, 89);
+	cursor: pointer;
+}
+
+#adminLogin {
+	width: 30%;
+	padding: 20px;
+	height: 30em;
+	display: grid;
+	justify-items: center;
+}
+
+.modal_title {
+	margin-bottom: 20px;
+}
+
+.modal_title > h1 {
+	margin-bottom: -3px;
+	font-family: "Quantify";
+}
