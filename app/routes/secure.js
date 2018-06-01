@@ -27,23 +27,22 @@ module.exports = function(router) {
 
     router.get('/student_homepage', function(req, res){
         // finds a student using the user's id
-        Student.findById(req.user._id), function(err, student) {
-            if (err)
+        Student.findById(req.user._id, function(err, student) {
+            if (err) {
                 throw err;
-            if (student) { // if a student is found
-                res.render('student_homepage.ejs', { student: req.user, admin: null });
-            } else {
-                console.log('No student found on get /deck');
-                res.redirect('/auth');
-            }
-    }})
-    /*
+                res.redirect('/auth/logout');
+            } 
+            res.render('student_homepage.ejs', { student: req.user, admin: null });
+
+        })
+    });
+
     // when a student presses the evaluate button on a class card
-    router.get('/evaluate/:id', function(req, res) {
+    router.get('/evaluate/:_id', function(req, res) {
         Professor.findById(req.params._id).exec(function(err, professor) {
             if (err) throw err;
 
-            Class.findById(req.params.id).populate('professor')
+            Class.findById(req.params._id).populate('professor')
             .exec(function(err, cls) {
                 if (err) {
                     throw err;
@@ -59,12 +58,76 @@ module.exports = function(router) {
         })
     })
 
-    /* from form.ejs
-    router.post('/submit_evaluation/:id', function(req, res) {
-        Professor.findById(req.params.id, function(err, professor) {
+    router.get('/admin_homepage', function(req, res) {
+        Class.find().populate('professor').sort({'course.code': -1}).exec(function(err, classes) {
+            if (err) throw err;
+            console.log(classes.length)
+            res.render('admin_homepage.ejs', {clx: classes});
+        })
+    })
+
+    router.get('/faculty_list', function(req, res) {
+        Professor.find().sort({'lastName': -1}).exec(function(err, professors) {
+            res.render('faculty_list.ejs', {professors: professors})})
+    })
+    // from form.ejs
+    router.post('/submit_evaluation/:_id', function(req, res) {
+        Professor.findById(req.params._id, function(err, professor) {
 
         })
-    })*/
+    })
+
+    // from form.ejs
+    router.post('/create_class', function(req, res) {
+        console.log(req.body);
+        Professor.findOne({'lastName': {'$regex': req.body.lastName, '$options':'i'}})
+            .exec(function(err, professor) {
+                if (err) throw err;
+                if (professor) {
+
+                    console.log(professor);
+                    var profId = professor._id;
+                    var name = req.body.courseName;
+                    var code = req.body.courseCode;
+                    var units = req.body.courseUnits;
+                    var section = req.body.section;
+                    var day = req.body.day;
+                    var time = req.body.time;
+                    var room = req.body.room;
+                    var profId = req.body.profId;
+
+                    var newClass = new Class({
+                        course: {
+                            code: code,
+                            name: name,
+                            units: units
+                        },
+                        section: section,
+                        schedule: {
+                            day: day,
+                            time: time,
+                            room: room
+                        },
+                        professor: profId
+                    })
+
+                    newClass.save();
+
+                } else {
+                    var newProf = new Professor({
+                        _id: new mongoose.Types.ObjectId(),
+                        firstName: req.body.firstName,
+                        lastName: req.body.lastName,
+                    })
+
+                    newProf.save(function(err, newProf) {
+                        if (err) throw err;
+                        console.log(newProf);
+                    })
+                } res.redirect('/admin_homepage');
+            })
+    })
+
     /*User.find({'$or':[{'firstName': {'$regex': req.body.searchQuery, '$options':'i'}},
                         {'lastName': {'$regex': req.body.searchQuery, '$options':'i'}},
                         {'username': {'$regex': req.body.searchQuery, '$options':'i'}}]})*/

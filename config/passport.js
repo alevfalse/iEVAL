@@ -13,7 +13,13 @@ module.exports = function(passport) {
 
     passport.deserializeUser(function(id, done) {
         Student.findById(id, function(err, user) {
-            done(err, user);  // getting all the data of the user using its id
+            if (err) throw err;
+            if (user) done(err, user);
+            else {
+                Admin.findById(id, function(err, admin) {
+                    done(err, admin);
+                })
+            }
         });
     });
 
@@ -45,7 +51,8 @@ module.exports = function(passport) {
                         return done(null, false);
                     } else {
                         var newStudent = new Student({
-                            _id: studentID,
+                            _id: new mongoose.Types.ObjectId(),
+                            ID: studentID,
                             firstName: profile.name.givenName,
                             lastName: profile.name.familyName,
                             google: {
@@ -76,19 +83,19 @@ module.exports = function(passport) {
     function(req, username, password, done) {
 
         process.nextTick(function() {
-
-            console.log(email);
             Admin.findOne({'username': username}, function(err, admin) {
+                console.log(admin);
                 if (err) { return done(err); }
 
                 if (!admin) {
+                    console.log('invalid username');
                     return done(null, false, req.flash('loginMessage', 'Username does not exist.'));
                 }
 
-                if (!admin.validPassword(password)) {
+                if (admin.password != password) {
                     return done(null, false, req.flash('loginMessage', 'Password does not match.'))
                 }
-
+                console.log
                 return done(null, admin); // sends/binds the user object to the request
             })
         })

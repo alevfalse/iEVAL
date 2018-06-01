@@ -23,7 +23,7 @@ module.exports = function(router, passport) {
     
     // localhost:8080/auth/login for admin
     router.post('/login', passport.authenticate('local-admin-login', {
-        successRedirect: '/student_homepage',
+        successRedirect: '/admin_homepage',
         failureRedirect: '/auth/login',
         failureFlash: true
     }));

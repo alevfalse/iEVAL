@@ -3,12 +3,12 @@
     
             <div class="content">
                 <div class="header" id="courseHeader">
-                    Course Code
+                    <%= classes[i].course.name%>>
                     <p class="cardSection">SECTION</p>
                 </div>
                 
                 <div class="description">
-                    <p>course name</p>
+                    <p><%= classes[i].course.code %>></p>
                 </div>
             </div>
     
@@ -18,11 +18,11 @@
                     Show Details
                 </div>
                 <div class="content">
-                    <p class="transition hidden">Units: <strong>#units</strong></p>
-                    <p class="transition hidden">Day: <strong>#day</strong></p>
-                    <p class="transition hidden">Time: <strong>#time</strong></p>
-                    <p class="transition hidden">Room: <strong>#room</strong></p>
-                    <p class="transition hidden">Faculty: <strong>#faculty</strong></p>
+                    <p class="transition hidden">Units: <strong><%= classes[i].course.units %></strong></p>
+                    <p class="transition hidden">Day: <strong><%= classes[i].schedule.day %></strong></p>
+                    <p class="transition hidden">Time: <strong><%= classes[i].schedule.time %></strong></p>
+                    <p class="transition hidden">Room: <strong><%= classes[i].schedule.room %></strong></p>
+                    <p class="transition hidden">Faculty: <strong><%= classes[i].professor.firstName %> <%= classes[i].professor.lastName %></strong></p>
                 </div>
                 
             </div>

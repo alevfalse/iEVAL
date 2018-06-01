@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 var Class = require('./class.js');
 
 var StudentSchema = new mongoose.Schema({
-    _id: String,
+    _id: mongoose.Schema.Types.ObjectId,
+    ID: String,
     firstName: String,
     lastName: String,
     google: {
