@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="shortcut icon" href="images/favicon.ico" />
+   <title>form component</title>
+
+   <!-- semantic-ui styles -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" />
+   <!-- main css -->
+   <link rel="stylesheet" href="./form.css">
+</head>
+
+<body>
+
+
+
+
+<div class="content">
+    <form action="" method="POST" class="ui form evalutation_form">
+        <div class="ui top attached label">
+            FORM
+        </div>
+        <div class="field">
+            <label for="">Faculty Name</label>
+            <input type="text" readonly>
+        </div>
+
+        <div class="two fields">
+            <div class="ten wide field">
+                <label for="">Course</label>
+                <input type="text" readonly>
+            </div>
+            <div class="six wide field">
+                <label for="">Subject</label>
+                <input type="text" readonly>
+            </div>
+        </div>
+        <div class="three fields">
+            <div class="two wide field">
+                <label for="">Term</label>
+                <input type="text" readonly>
+            </div>
+            <div class="six wide field">
+                <label for="">School Year</label>
+                <input type="text" readonly>
+            </div>
+            <div class="eight wide field">
+                <label for="">Day/Time</label>
+                <input type="text" readonly>
+            </div>
+        </div>
+        <div class="ui divider"></div>
+        <div class="field">
+            <label for="">bdfbdfb</label>
+            <div class="slidecontainer">
+                    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                  </div>
+        </div>
+    </form>
+</div><!-- id="content" -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ======= SEMANTIC UI SCRIPTS ========================================================================================================================== -->
+<!-- jquery should be above the semantic.js due to having dependencies -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- semantic-ui javascript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+
+
+
+<!-- ======= MAIN SCRIPTS ========================================================================================================================== -->
+<script>
+// SEMANTIC-UI dropdown function
+$('.ui.dropdown')
+	.dropdown()
+;
+
+$('.ui.accordion')
+  .accordion()
+;
+
+$('.ui.modal')
+  .modal('attach events','.editTrigger','show')
+;
+</script>
+</body>
+
+</html>

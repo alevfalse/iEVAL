@@ -23,7 +23,7 @@ body {
    width: 45em;
    height: 35em;
    display: grid;
-   grid-template-columns: 1.4fr 1fr;
+   grid-template-columns: 1.3fr 1fr;
    border-radius: 10px;
    box-shadow: 0px 3px 6px #0000004a;
 }
@@ -35,11 +35,10 @@ body {
    /* background-color: #6DC4FF; */
    justify-self: center;
    align-self: center;
-   margin-bottom: 50px;
 }
 
-#GRUMBLR {
-      width: 15em;
+#SEAL {
+      width: 18em;
       height: auto;
       /* background-color: #543da7; */
 }
@@ -60,7 +59,8 @@ body {
       }
 
       form .title h1 {
-         font-family: "Big John";
+         font-family: "Gotham Rounded", sans-serif;
+         font-weight: bolder;
          /* background-color: white; */
          text-align: center;
          color: #859CAB;
@@ -86,10 +86,13 @@ body {
       }
 
       #registerButton {
-            margin-top: 1em; 
+            margin-top: 8px; 
             background-color: #6C4ED5;
             color: white;
       }
       #registerButton:hover {
             background-color: #543da7;
+      }
+      #googleMail {
+            margin-top: 8px;
       }
