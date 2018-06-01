@@ -84,8 +84,6 @@ module.exports = function(router) {
     // from form.ejs
     router.post('/create_class', function(req, res) {
         console.log(req.body);
-        console.log(professor);
-        var profId = professor._id;
         var name = req.body.courseName;
         var code = req.body.courseCode;
         var units = req.body.courseUnits;
@@ -96,6 +94,7 @@ module.exports = function(router) {
         var professorId = req.body.professorId;
 
         var newClass = new Class({
+            _id: new mongoose.Types.ObjectId(),
             course: {
                 code: code,
                 name: name,
