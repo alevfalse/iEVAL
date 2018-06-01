@@ -1,0 +1,15 @@
+/node_modules
+/uploads
+/tests
+test*
+
+
+/Notes
+
+dependencies.txt
+
+.eslintrc.js
+
+.vscode/
+
+/config/database.js

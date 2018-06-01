@@ -1,0 +1,144 @@
+<!-- L O O P  C O N T E N T -->
+<div class="post"> 
+    <%
+        if (posts[i].image != null) {
+            if (posts[i].image.img) {
+                var type = posts[i].image.img.contentType;
+                console.log(type);
+                var base64String = posts[i].image.img.data;
+                var postContentImage = "data:"+type+";base64, "+base64String;
+            }
+
+        } else {
+            console.log()
+            var postContentImage = "";
+        }
+
+        if (posts[i].User.profileImage.img) {
+            console.log(posts[i].User.username + ' has profile image');
+
+            if (posts[i].User.profileImage.img) {
+                console.log(posts[i].User.username + 'Has img');
+
+                if (posts[i].User.profileImage.img.data) {
+                    var type = posts[i].User.profileImage.img.contentType;
+                    console.log(type);
+                    var base64String = posts[i].User.profileImage.img.data;
+                    var postersProfileImage = "data:"+type+";base64, "+base64String;
+                } else {
+
+                }
+            } else {
+                console.log('No img');
+            }
+        } else {
+            console.log(posts[i].User.username + ' has NO profile image');
+        }
+    %>
+
+    <!-- POST: META-DATA -->
+    <div class="postMeta">
+
+        <div class="postDetails">
+            <div class="userDetails">
+                <!-- USER: AVATAR -->       <div class="postMetaAvatar" id="avatarImage"
+                                                 style="background: url('<%=postersProfileImage%>');
+                                                        background-size: cover;
+                                                        background-position: center;">
+                                            </div>
+                                            <%if(posts[i].User.username == user.username) { var link = '/profile' } 
+                                            else { var link = '/users/' + posts[i].User.username; } %>
+                <!-- USER: USERNAME -->     <a href="<%= link %>" class="postMetaAuthorUsername"><strong>@<%=posts[i].User.username%></strong></a>
+            </div>
+        
+        </div>
+        <!-- META: DATE CREATED --> <div class="postMetaDate"><%=posts[i].utcMS.toUTCString()%></div>
+        
+        <% if (posts[i].User.username == user.username) {%>
+        <div class="postEdit">
+            <div class="ui dropdown editDropDown">
+            <!-- POST: EDIT BUTTON -->          <i class="icon ellipsis horizontal editButton"></i>
+            <!-- POST: EDIT MENU DROPDOWN -->   <div class="menu left">
+                                                    <div class="item editTrigger">Edit</div>
+                                                    <a href="/delete/<%=posts[i]._id%>" class="item">Delete</a>
+                                                </div>
+            </div>
+        </div>
+
+        <div class="ui modal tiny">
+            <div class="header">Edit Post</div>
+            <form action="/edit/<%=posts[i]._id%>" method="POST" class="content" enctype="multipart/form-data">
+                <textarea name="editText" id="editPostTextArea" rows="10" placeholder="Write Something..." value=""><%=posts[i].text%></textarea>
+                <div class="actions">
+                    <button class="ui approve button teal labeled icon" type="submit"><i class="check icon"></i>Save Changes</button>
+                    <div class="ui cancel button labeled icon"><i class="close icon"></i> Cancel</div>
+                </div>
+            </form>
+        </div>
+
+        <%} else {
+            console.log(posts[i].User.username+'\n'+user.username);
+            console.log('Not your post');
+        }%>
+
+    </div>
+    
+    
+    <!-- POST: CONTENT -->
+    <div class="postContentContainer">
+        <!-- POST CONTENT: CAPTION/TEXT -->
+        <p class="ui postContentText input">
+            <%=posts[i].text%>
+        </p>
+        
+        <!-- POST CONTENT: IMAGE --><img class="postContentImage" src="<%=postContentImage%>">
+        <!-- ==if there is an image attached to this post, insert an "img" tag with an attribute class="postContentImage" and the source-->
+    </div>
+
+
+    <div class="ui accordion">
+        
+        <div class="title">
+            <div class="comment">
+                <i class="comment outline icon"></i>
+                <%=posts[i].comments.length%> Comments
+            </div>
+            <i class="caret down icon dropCommentsIcon"></i>
+        </div>
+
+        <div class="content">
+            <div class="commentSection">
+                <%  if (posts[i].comments.length > 0) {
+                        for(var a=0; a<posts[i].comments.length; a++) {
+                            %><div class="personComment">
+                            <p>
+                                <a href="/users/<%=posts[i].comments[a].User.username%>">
+                                <strong><%=posts[i].comments[a].User.username%></strong></a> <%=posts[i].comments[a].utcMS.toUTCString()%><br>
+                                <%=posts[i].comments[a].text%>
+                            </p>
+                            </div>
+                        <%}
+                    }
+                %>
+            </div>
+
+            <div class="ui divider"></div>
+
+            <!-- comment form -->
+            <form class="reply ui form" id="replyForm" action="/comment/<%=posts[i]._id%>" method="POST" enctype="multipart/form-data">
+                <div class="field commentfield">
+                    <img src="<%= profileImage %>" alt="" class="ui avatar image" id="avatarImage">
+                    <div class="ui right labeled left icon input">
+                        <!-- comment text area -->
+                        <textarea placeholder="Add Comment..." name="commentText" rows="1" id="commentField"></textarea>
+                        <!-- reply button -->
+                        <button class="ui button icon submit teal" type="submit" id="replyButton">
+                            <i class="reply icon"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div> <!-- ui accordion -->
+</div>

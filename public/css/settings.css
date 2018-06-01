@@ -1,0 +1,130 @@
+@import url('../components/fonts/gotham-rounded.css');
+
+body {
+    background: url('../images/patterns/subtle-zebra-3d.png'),-webkit-linear-gradient(top left, #34adfe,#6C4ED5);
+    background-attachment: fixed;
+    /* background-color: #6C4ED5; */
+}
+
+#content {
+    /* background-color: yellowgreen; */
+    padding-top: 5em;
+    justify-items: center;
+    display: grid;
+}
+
+.settingsContainer {
+    width: 50em;
+    /* background-color: #6DC4FF; */
+}
+
+
+
+#changePasswordHeader {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    /* background-color: blue; */
+    align-items: center;
+}
+
+#editIconButton {
+    width: 10em;
+}
+
+
+
+
+
+#generalSettingsHeaderSegment {
+    border-radius: 10px 10px 0px 0px;
+}
+#changePasswordSettingsSegment {
+    border-radius: 0px 0px 10px 10px;
+}
+#profileSettingsHeaderSegment{
+    border-radius: 10px 10px 0px 0px;
+}
+#saveChangesSegment {
+    border-radius: 0px 0px 10px 10px;
+    margin-bottom: 100px;
+}
+
+.profilePictureUpload {
+    /* background-color: #6C4ED5; */
+    width: 100%;
+    grid-template-columns: 1fr 3fr;
+    display: grid;
+    margin-bottom: 30px;
+}
+
+        #profileImageContainer {
+            border-radius: 500em;
+            width: 10em;
+            height: 10em;
+            display: grid;
+            /* background-color: red; */
+            justify-items: center;
+            align-items: center;
+            margin-right: 20px;
+            overflow: hidden;
+        }
+                #profileImage {
+                    height: 100%;
+                }
+        
+        #uploadProfileImageContainer {
+            display: grid;
+            /* background-color: blue;   */
+            align-self: center;
+            justify-items: start;
+        }
+
+
+.headerImageUpload {
+    /* background-color: #6C4ED5; */
+    width: 100%;
+    grid-template-columns: 1fr 2fr;
+    display: grid;
+    margin-bottom: 30px;
+}
+        #headerImageContainer {
+            border-radius: 5px;
+            width: 15em;
+            height: 7em;
+            display: grid;
+            /* background-color: red; */
+            justify-items: center;
+            align-items: center;
+            margin-right: 20px;
+            overflow: hidden;
+        }
+
+                #headerImage {
+                    width: 100%;
+                }
+
+        #uploadHeaderImageContainer {
+            /* background-color: blue; */
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+        }
+        
+
+
+.biographySection {
+    /* background-color: #6C4ED5; */
+}
+        #biographyField {
+            resize: none;
+            /* background-color: #dfdfdf; */
+        }
+
+#cancelButton {
+    margin-left: 10px;
+    background-color: #dfdfdf;
+    /* color: #8d8d8d; */
+}
+#cancelButton:hover {
+    background-color: #c5c5c5;
+}

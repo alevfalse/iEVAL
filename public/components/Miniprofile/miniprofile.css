@@ -1,0 +1,23 @@
+#leftRail {
+    margin-right: 6.5em;
+}
+
+#leftPanel {
+    border-radius: 10px;
+}
+
+.profileImage {
+    height: 10em;
+    width: 10em;
+    border-radius: 300em;
+    margin-bottom: 10px;
+}
+.bio {
+    display: grid;
+    justify-items: center;
+}
+.accountStats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: start;
+}

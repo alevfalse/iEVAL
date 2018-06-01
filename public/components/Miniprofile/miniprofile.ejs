@@ -1,0 +1,52 @@
+<!-- MAKE SURE ITS PARENT CONTAINER HAS A CLASS OS "UI SEGMENT" -->
+<div class="ui left rail" id="leftRail">
+        <div class="ui segment sticky" id="leftPanel">
+            <!-- PROFILE PICTURE -->
+            <div class="profileImage"
+                style="background-color: gray;
+                        background-image: url('<%=profileImage%>');
+                        background-position: center;
+                        background-size: cover;">
+            </div>
+
+            <!-- USER INFORMATION -->
+            <a href="/profile" class="ui header" id="userNames">
+                <%=user.firstName %>
+                <%=user.lastName %>
+                <div href="/profile" class="sub header">
+                    @<%=user.username%>
+                </div href="sdfsdf">
+            </a>
+
+            <div class="ui divider"></div> <!-- ========================================================================================================== -->
+            
+            <!-- BIOGRAPHY -->
+            <p class="bio">
+                <%=user.bio%>
+            </p>
+
+            <div class="ui divider"></div> <!-- ========================================================================================================== -->
+
+            <!-- ACCOUNT STATISTICS -->
+            <div class="accountStats ui content">
+                    <a>
+                        <strong>
+                            Posts <br>
+                            <%=user.posts%>
+                        </strong>
+                    </a>
+                    <a>
+                        <strong>
+                            Following <br>
+                            <%=user.following%>
+                        </strong>
+                    </a>
+                    <a>
+                        <strong>
+                            Followers <br>
+                            <%=user.followers%>
+                        </strong>
+                    </a>
+            </div>
+        </div>
+</div>
