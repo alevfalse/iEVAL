@@ -21,9 +21,8 @@
 
 <body>
 
-	<div class="wrapper">
-
-		<div class="loginContainer">
+<div class="wrapper">
+	<div class="loginContainer">
 
 			<!-- logo -->
 			<div class="logoContainer">
@@ -41,75 +40,74 @@
 								<p id="facultyEvalutation">Faculty Evaluation</p>
 							</div>
 
-							<!-- message/alert -->
-							<% if (locals.message) {
-								if (message.length > 0) { %>
-								<div class="ui negative message">
-									<i class="close icon"></i>
-									<div class="header">
-										<%= message%>
-									</div>
-								</div>
-								<%}
-							}%>
-
-					<!-- username -->
-					<!-- <div class="field">
-						<label id="username">EMAIL ADDRESS</label>
-						<input type="text" name="email" autocomplete="off" required="required">
-					</div> -->
-
-					<!-- password -->
-					<!-- <div class="field">
-						<label id="password">PASSWORD</label>
-						<input type="password" name="password" autocomplete="off" required="required">
-					</div> -->
-
-					<!-- login button -->
-					<!-- <button class="ui button primary fluid" type="submit" id="LoginButton">Login</button> -->
-					<!-- <a href="/auth/signup" class="ui button fluid" id="registerButton">Sign up for an account?</a> -->
-					<button href="/auth/google" class="ui button fluid icon labeled red" id="googleMail"><i class="icon google"></i>Login using iACADEMY Gmail</button>
-						  
-					<button type="button" class="ui button primary fluid" type="submit" id="LoginButton">Admin Login</button>
-
-
-
-					<div class="ui modal" id="adminLogin">
-						<form action="" method="POST" class="ui form">
-							<i class="icon close" id="closeModal"></i>
-							<div class="login">
-								<div class="modal_title">
-									<h1>iACADEMY</h1>
-									<p>Administrator Login</p>
-								</div>
-
-								
-								<div class="field">
-									<label id="username">EMAIL ADDRESS</label>
-									<input type="text" name="email" autocomplete="off" required="required">
-								</div>
-	
-								
-								<div class="field">
-									<label id="password">PASSWORD</label>
-									<input type="password" name="password" autocomplete="off" required="required">
-								</div>
-
-								<button href="/auth/login/admin" type="submit" class="ui button icon labeled teal"><i class="icon sign in"></i> Login</button>
+					<!-- message/alert -->
+					<% if (locals.message) {
+						if (message.length > 0) { %>
+						<div class="ui negative message">
+							<i class="close icon"></i>
+							<div class="header">
+								<%= message%>
 							</div>
-						</form>
-					</div>
+						</div>
+						<%}
+					}%>
 					
-
+					<button href="/auth/google" class="ui button fluid icon labeled red" id="googleMail"><i class="icon google"></i>Login using iACADEMY Gmail</button>
+					
+					<button type="button" class="ui button primary fluid" type="submit" id="LoginButton">Admin Login</button>
+					
 				</form>
-			</div>
-			<!-- formContainer -->
+			</div><!-- formContainer -->
 
-		</div>
-		<!-- loginContainer -->
+					<!-- //////////////////////////////////////////////// MODAL //////////////////////////////////////////////////////////////////////////// -->
+					<div class="ui modal" id="adminLogin">
+						<div class="ui form" id="modal_formContainer">
+							<form action="/auth/login" POST"" method="POST">
+								<div class="login">
+									
+									<!-- TITLE -->
+									<div class="modal_title">
+										<h1>iACADEMY</h1>
+										<p>Administrator Login</p>
+									</div>
 
-	</div>
-	<!-- wrapper -->
+									<!-- message/alert -->
+									<% if (locals.message) {
+										if (message.length > 0) { %>
+										<div class="ui negative message">
+											<i class="close icon"></i>
+											<div class="header">
+												<%= message%>
+											</div>
+										</div>
+										<%}
+									}%>
+
+									<!-- EMAIL ADDRESS -->
+									<div class="field">
+										<label id="username">EMAIL ADDRESS</label>
+										<input type="text" name="email" autocomplete="off" required="required">
+									</div>
+		
+									<!-- PASSWORD -->
+									<div class="field">
+										<label id="password">PASSWORD</label>
+										<input type="password" name="password" autocomplete="off" required="required">
+									</div>
+
+									<button href="/auth/login/admin" type="submit" class="ui button icon labeled blue">
+										<i class="icon sign in"></i> Login
+									</button>
+								</div>
+							</form>	
+						</div>
+					</div>
+					<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+			
+
+	</div><!-- loginContainer -->
+</div><!-- wrapper -->
 
 
 
@@ -129,9 +127,10 @@
 		})
 	;
 
-	$('.ui.modal')
+	$('#adminLogin')
   		.modal('attach events', '#LoginButton', 'show')
 	;
+
 </script>
 
 </body>
