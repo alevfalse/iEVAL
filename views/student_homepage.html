@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="shortcut icon" href="images/favicon.ico" />
+	<title>iACADEMY | Student</title>
+
+	<!-- semantic-ui styles -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" />
+	<!-- main css -->
+	<link rel="stylesheet" href="../public/css/student_homepage.css">
+</head>
+
+<body>
+
+<!-- INSERT NAVBAR COMPONENT HERE -->
+
+<div id="content">
+		<!-- STUDENT CARD -->
+		<div class="ui card" id="studentCard">
+			<div class="content">
+				<div class="header" id="courseHeader">
+					Nathaniel Saludes
+				</div>
+				
+				<div class="description">
+					<p>201502034</p>
+				</div>
+			</div>
+	
+			<div class="ui styled fluid accordion">
+				<div class="title">
+					<i class="dropdown icon"></i>
+					Show more details about you
+				</div>
+				<div class="content">
+					<p class="transition hidden">Units: <strong>#units</strong></p>
+					<p class="transition hidden">Day: <strong>#day</strong></p>
+					<p class="transition hidden">Time: <strong>#time</strong></p>
+					<p class="transition hidden">Room: <strong>#room</strong></p>
+					<p class="transition hidden">Faculty: <strong>#faculty</strong></p>
+				</div>
+			</div>
+		</div>
+		
+
+		
+<h1 class="header" id="cardsContainerHeader">
+	Faculty Evaluation List
+</h1>
+<div class="cardsContainer">
+
+	<div class="classInstance">
+		<div class="ui card" id="classCard">
+				<div class="content">
+					<div class="header" id="courseHeader">
+						Course Code
+						<p class="cardSection">SECTION</p>
+					</div>
+					
+					<div class="description">
+						<p>course name</p>
+					</div>
+				</div>
+	
+				<a href="/" class="ui button bottom attached teal">
+					Evaluate
+				</a>
+		</div>
+	</div>
+	
+
+</div>
+
+
+
+
+
+
+
+
+</div> <!-- id="content" -->
+
+
+
+<!-- ======= SEMANTIC UI SCRIPTS ========================================================================================================================== -->
+<!-- jquery should be above the semantic.js due to having dependencies -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- semantic-ui javascript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+
+<!-- ======= MAIN SCRIPTS ========================================================================================================================== -->
+<script>
+$('.ui.accordion')
+  .accordion()
+;
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
