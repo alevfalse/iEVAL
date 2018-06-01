@@ -33,8 +33,14 @@ body {
     z-index: 2;
 }
 
+#classCardContent {
+    width: 100%;
+    height: 100%;
+}
+
 #courseHeader {
     font-size: 2em;
+    /* background-color: #365cae; */
 }
 
 
