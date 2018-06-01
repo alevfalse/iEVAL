@@ -10,7 +10,7 @@
    <!-- semantic-ui styles -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" />
    <!-- main css -->
-   <link rel="stylesheet" href="/css/form.css">
+   <link rel="stylesheet" href="../public/css/form.css">
 </head>
 
 <body>
@@ -24,36 +24,36 @@
         <div class="courseDetails">
             <div class="fields">
                 <div class="three wide field">
-                    <label for=""><%= cls.course.code %></label>
-                    <input type="text" readonly="readonly" name="" id="">
+                    <label for="">Course Code</label>
+                    <input type="text" readonly="readonly" name="" id="" value="<%= cls.course.code %>">
                 </div>
                 <div class="eleven wide field">
-                    <label for=""><%= cls.course.name %></label>
-                    <input type="text" readonly="readonly" name="" id="">
+                    <label for="">Course Name</label>
+                    <input type="text" readonly="readonly" name="" id="" value="<%= cls.course.name %>">
                 </div>
                 <div class="two wide field">
-                    <label for=""><%= cls.course.units %></label>
-                    <input type="text" readonly="readonly" name="" id="">
+                    <label for="">Units</label>
+                    <input type="text" readonly="readonly" name="" id="" value="<%= cls.course.units %>">
                 </div>
             </div>
             
             <div class="fields">
                 <div class="six wide field">
-                    <label for=""><%= cls.course.section %></label>
-                    <input type="text" readonly="readonly" name="" id="">
+                    <label for="">Section</label>
+                    <input type="text" readonly="readonly" name="" id="" value="<%= cls.course.section %>">
                 </div>
                 <div class="fields">
                     <div class="field">
-                        <label><%= cls.schedule.day %></label>
-                        <input type="text" placeholder="">
+                        <label>Day</label>
+                        <input type="text" placeholder="" value="<%= cls.schedule.day %>">
                     </div>
                     <div class="field">
-                        <label for=""><%= cls.schedule.time %></label>
-                        <input type="text" placeholder="">
+                        <label for="">Time</label>
+                        <input type="text" placeholder="" value="<%= cls.schedule.time %>">
                     </div>
                     <div class="field">
-                        <label for=""><%= cls.schedule.room %></label>
-                        <input type="text" placeholder="">
+                        <label for="">Room</label>
+                        <input type="text" placeholder="" value="<%= cls.schedule.room %>">
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
         <div class="ui dividing header">Faculty:</div> <!-- ========================================================================================= -->
         <div class="professorDetails"> 
             <h1 class="head">
-                <a href=""><%= cls.professor.firstName %> <%= cls.professor.lastName %>></a>
+                <a href=""><%= cls.professor.firstName %> <%= cls.professor.lastName %></a>
             </h1>
         </div>
     </div>
