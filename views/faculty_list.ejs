@@ -32,8 +32,12 @@
 		for (var i=0; i<professors.length; i++) {%>
 			<div class="result">
 				<div class="ui card">
-					<div class="content">
+					<div class="content" id="cardContent">
 						<a class="header"><%=professors[i].lastName%>, <%=professors[i].firstName%></a>
+						<div class="ui label teal evaluatedCount">
+							Evaluated:
+							<div class="detail">#</div>
+						</div>
 					</div>
 			
 					<div class="ui styled fluid accordion">
