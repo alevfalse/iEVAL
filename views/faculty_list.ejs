@@ -42,6 +42,7 @@
 							Faculty Evaluation
 						</div>
 						<div class="content">
+						<% if (professors[i].numberEvaluated > 0) {%>
 							<table class="ui single line table">
 								<thead>
 									<tr>
@@ -52,7 +53,7 @@
 								<tbody>
 									<tr>
 										<td>Approachability</td>
-										<td><%=professors[i].attr.approachability%></td>
+										<td><%=professors[i].attr.approachability / professors[i].numberEvaluated%></td>
 									</tr>
 									<tr>
 										<td>Respect</td>
@@ -60,58 +61,59 @@
 									</tr>
 									<tr>
 										<td>Encouragement</td>
-										<td><%=professors[i].attr.encouragement%></td>
+										<td><%=professors[i].attr.encouragement / professors[i].numberEvaluated%></td>
 									</tr>
 									<tr>
 										<td>Fairness</td>
-										<td><%=professors[i].attr.fairness%></td>
+										<td><%=professors[i].attr.fairness / professors[i].numberEvaluated%></td>
 									</tr>
 									<tr>
 										<td>Teaching Skills</td>
-										<td><%=professors[i].attr.teaching%></td>
+										<td><%=professors[i].attr.teaching / professors[i].numberEvaluated%></td>
 									</tr>
 									<tr>
 										<td>Presentation</td>
-										<td><%=professors[i].attr.presentation%></td>
+										<td><%=professors[i].attr.presentation / professors[i].numberEvaluated%></td>
 									</tr>
 									<tr>
 										<td>Mastery</td>
-										<td><%=professors[i].attr.mastery%></td>
+										<td><%=professors[i].attr.mastery / professors[i].numberEvaluated%></td>
 									</tr>
 									<tr>
 										<td>Updated</td>
-										<td><%=professors[i].attr.updated%></td>
+										<td><%=professors[i].attr.updated / professors[i].numberEvaluated%></td>
 									</tr>
 									<tr>
 										<td>Consistency</td>
-										<td><%=professors[i].attr.consistency%></td>
+										<td><%=professors[i].attr.consistency / professors[i].numberEvaluated%></td>
 									</tr>
 									<tr>
 										<td>Confidence</td>
-										<td><%=professors[i].attr.confidence%></td>
+										<td><%=professors[i].attr.confidence / professors[i].numberEvaluated%></td>
 									</tr>
 									<tr>
 										<td>Communication Skills</td>
-										<td><%=professors[i].attr.communication%></td>
+										<td><%=professors[i].attr.communication / professors[i].numberEvaluated%></td>
 									</tr>
 									<tr>
 										<td>Punctuality</td>
-										<td><%=professors[i].attr.punctuality%></td>
+										<td><%=professors[i].attr.punctuality / professors[i].numberEvaluated%></td>
 									</tr>
 									<tr>
 										<td>Time Management</td>
-										<td><%=professors[i].attr.timeManagement%></td>
+										<td><%=professors[i].attr.timeManagement / professors[i].numberEvaluated%></td>
 									</tr>
 									<tr>
 										<td>Class Management</td>
-										<td><%=professors[i].attr.classManagement%></td>
+										<td><%=professors[i].attr.classManagement / professors[i].numberEvaluated%></td>
 									</tr>
 									<tr>
 										<td>Asset</td>
-										<td><%=professors[i].attr.asset%></td>
+										<td><%=professors[i].attr.asset / professors[i].numberEvaluated%></td>
 									</tr>
 								</tbody>
 							</table>
+						<%}%>
 						</div>
 					</div>
 				</div>

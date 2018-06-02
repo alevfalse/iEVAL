@@ -77,10 +77,59 @@ module.exports = function(router) {
             res.render('faculty_list.ejs', {professors: professors})})
     })
     // from form.ejs
-    router.post('/submit_evaluation/:_id', function(req, res) {
-        Professor.findById(req.params._id, function(err, professor) {
-
+    router.get('/evaluate/:_id', function(req, res) {
+        Class.findById(req.params._id).populate('professor').exec(function(err, cls) {
+            if (err) throw err;
+            console.log(cls);
+            res.render('form.ejs', {cls: cls});
         })
+    })
+
+    router.post('/submit_evaluation/:_id', function (req, res) {
+
+        Professor.findById(req.params._id, function(err, professor) {
+            if (err) throw err;
+
+            b = req.body;
+            professor.set({'numberEvaluated': professor.numberEvaluated+1});
+            var respect = b.q1;
+            var approachability = ((b.q2 + b.q3 + b.q4) / 3);
+            var encouragement = (b.q5 + b.q6) / 2;
+            var transparency = (b.q7 + b.q8) / 2;
+            var teaching = (b.q9 + b.q10) / 2;
+            var presentation = (b.q11 + b.q12 + b.q13) / 3;
+            var mastery = b.q14;
+            var updated = b.q15;
+            var confidence = b.q16;
+            var communication = (b.q17 + b.q18) / 2;
+            var punctuality = b.q19;
+            var timeManagement = (b.q20 + b.q21) / 2;
+            var consistency = b.q22;
+            var classManagement =  b.q23;
+            var asset = b.q24;
+
+            
+            professor.att.set({'respect': professor.respect + respect});
+            professor.att.set({'approachability': professor.approachability + approachability});
+            professor.att.set({'encouragement': professor.encouragement + encouragement});
+            professor.att.set({'transparency': professor.transparency + transparency});
+            professor.att.set({'teaching': professor.teaching + teaching});
+            professor.att.set({'presentation': professor.presentation + presentation});
+            professor.att.set({'updated': professor.updated + updated});
+            professor.att.set({'confidence': professor.confidence + confidence});
+            professor.att.set({'communication': professor.respect + communication});
+            professor.att.set({'punctuality': professor.punctuality + punctuality});
+            professor.att.set({'timeManagement': professor.timeManagement + timeManagement});
+            professor.att.set({'consistency': professor.consistency + consistency});
+            professor.att.set({'classManagement': professor.classManagement + classManagement});
+            professor.att.set({'asset': professor.asset + asset});
+            professor.save(function(err, updatedProfessor) {
+                if (err) throw err;
+                console.log(updatedProfessor);
+                res.redirect('/student_homepage');
+            })
+        })
+        
     })
 
     // from form.ejs
