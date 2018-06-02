@@ -20,6 +20,7 @@ body {
     display: grid;
     justify-items: center;
     padding: 50px;
+    margin-top: 5em;
 }
 
 #facultyListButton {
@@ -27,7 +28,7 @@ body {
     font-family: "Gotham Rounded", sans-serif;
     font-weight: bolder;
     font-size: 1.2em;
-    top: 3em;
+    top: 5em;
     left: 3em;
     border-radius: 10px;
     background-color: white;
@@ -37,9 +38,7 @@ body {
 }
 
 
-
-
-#topAttachedButton {
+#createClassHeader {
     border-radius: 10px 10px 0px 0px;
 }
 
@@ -71,7 +70,7 @@ body {
 .result {
     border-radius: 10px;
     width: 20em;
-    overflow: hidden;
+    /* overflow: hidden; */
     /* background-color: #5188ff; */
 }
 
