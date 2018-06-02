@@ -11,23 +11,45 @@
 	<!-- semantic-ui styles -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" />
 	<!-- main css -->
-	<link rel="stylesheet" href="../public/css/student_homepage.css">
+	<link rel="stylesheet" href="/css/student_homepage.css">
 </head>
 
 <body>
 
 <!-- INSERT NAVBAR COMPONENT HERE -->
+<link rel="stylesheet" href="/components/navbar/navbar.css">
+	<div id="navBarContainer">
+			<div class="ui menu inverted" id="navbar">
+				<div class="item" id="Logo">
+					<p id="iACADEMYLogoText">iACADEMY</p>
+					<span class="facultyEvaluationLogo">Faculty Evaluation</span>
+				</div>
+				<a href="/student_homepage" class="item" id="redirectLink">HOME</a>
+		
+				<!-- Search Suggestions -->
+				<div class="ui dropdown item right" tabindex="0">
+					<span id="userName">
+						<strong>
+							<%=student.firstName%> <%=student.lastName%>
+						</strong>
+					</span>
+					<div class="menu">
+						<a href="/auth/logout" class="item">Logout</a>
+				</div>
+			</div>
+		</div>
+</div>
 
 <div id="content">
 		<!-- STUDENT CARD -->
 		<div class="ui card" id="studentCard">
 			<div class="content" id="classCardContent">
 				<div class="header" id="courseHeader">
-					Nathaniel Saludes
+					<%=student.firstName%> <%=student.lastName%>
 				</div>
 				
 				<div class="description">
-					<p>201502034</p>
+					<p><%=student.ID%></p>
 				</div>
 			</div>
 		</div>
@@ -40,24 +62,33 @@
 <div class="cardsContainer">
 
 	<!-- EVALUATE CARD -->
-	<div class="classInstance">
-		<div class="ui card" id="classCard">
-			<div class="content">
-				<div class="header" id="courseHeader">
-					Course Code
-					<p class="cardSection">SECTION</p>
+	<%
+		if (locals.classes) {
+			console.log(classes.length);
+			for (var i=0; i<classes.length; i++) {%>
+				<form action="/evaluate/<%=classes[i].professor._id%>" method="POST">
+				<div class="classInstance">
+					<div class="ui card" id="classCard">
+						<div class="content">
+							<div class="header" id="courseHeader">
+								<%=classes[i].course.name%>
+								<p class="cardSection"><%=classes[i].section%></p>
+							</div>
+							
+							<div class="description">
+								<p><%=classes[i].professor.firstName%> <%=classes[i].professor.lastName%></p>
+							</div>
+						</div>
+						
+						<button type="submit" class="ui button bottom attached teal">
+							Evaluate
+						</button>
+				</form>
+					</div>
 				</div>
-				
-				<div class="description">
-					<p>course name</p>
-				</div>
-			</div>
-			
-			<a href="/" class="ui button bottom attached teal">
-				Evaluate
-			</a>
-		</div>
-	</div>
+			<%}
+		}
+	%>
 	<!-- EVALUATE CARD -->
 	
 
@@ -86,7 +117,10 @@ $('.ui.accordion')
   .accordion()
 ;
 
-
+$('.ui.dropdown')
+	.dropdown()
+;
+</script>
 
 </script>
 

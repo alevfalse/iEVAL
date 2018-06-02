@@ -28,12 +28,14 @@ module.exports = function(router) {
     router.get('/student_homepage', function(req, res){
         // finds a student using the user's id
         Student.findById(req.user._id, function(err, student) {
-            if (err) {
-                throw err;
-                res.redirect('/auth/logout');
-            } 
-            res.render('student_homepage.ejs', { student: req.user, admin: null });
-
+            Class.find().populate('professor').sort({'section': 1}).exec(function(err, classes) {
+                console.log(classes.length);
+                if (err) {
+                    throw err;
+                    res.redirect('/auth/logout');
+                }
+                res.render('student_homepage.ejs', { student: req.user, classes: classes });
+            })
         })
     });
 
@@ -59,13 +61,13 @@ module.exports = function(router) {
     })
 
     router.get('/admin_homepage', function(req, res) {
-        Class.find().populate('professor').sort({'course.code': 1}).exec(function(err, classes) {
+        Class.find().populate('professor').sort({'section': 1}).exec(function(err, classes) {
             if (err) throw err;
             console.log(classes.length)
             Professor.find().sort({'lastName': 1}).exec(function(err, professors) {
                 if (err) throw err;
                 console.log(professors.length)
-                res.render('admin_homepage.ejs', {classes: classes, professors: professors});
+                res.render('admin_homepage.ejs', {admin: req.user, classes: classes, professors: professors});
             })
         })
     })

@@ -17,6 +17,29 @@
 <body>
 
 	<!-- INCLUDE NAVBAR HERE ==============================================================================================================-->
+	<!-- NAVIGATION BAR COMPONENT -->
+	<link rel="stylesheet" href="/components/navbar/navbar.css">
+	<div id="navBarContainer">
+			<div class="ui menu inverted" id="navbar">
+				<div class="item" id="Logo">
+					<p id="iACADEMYLogoText">iACADEMY</p>
+					<span class="facultyEvaluationLogo">Faculty Evaluation</span>
+				</div>
+				<a href="/admin_homepage" class="item" id="redirectLink">HOME</a>
+		
+				<!-- Search Suggestions -->
+				<div class="ui dropdown item right" tabindex="0">
+					<span id="userName">
+						<strong>
+							<%=admin.firstName%> <%=admin.lastName%>
+						</strong>
+					</span>
+					<div class="menu">
+						<a href="/auth/logout" class="item">Logout</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	<!-- INCLUDE NAVBAR HERE ==============================================================================================================-->
 
 
@@ -147,19 +170,19 @@
 									</div>
 									<div class="content">
 										<p class="transition hidden">Units:
-											<strong>#units</strong>
+											<strong><%=classes[i].course.units%></strong>
 										</p>
 										<p class="transition hidden">Day:
-											<strong>#day</strong>
+											<strong><%=classes[i].schedule.day%></strong>
 										</p>
 										<p class="transition hidden">Time:
-											<strong>#time</strong>
+											<strong><%=classes[i].schedule.time%></strong>
 										</p>
 										<p class="transition hidden">Room:
-											<strong>#room</strong>
+											<strong><%=classes[i].schedule.room%></strong>
 										</p>
 										<p class="transition hidden">Faculty:
-											<strong>#faculty</strong>
+											<strong><%=classes[i].professor.firstName%> <%=classes[i].professor.lastName%></strong>
 										</p>
 									</div>
 								</div>
