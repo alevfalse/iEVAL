@@ -14,13 +14,31 @@
 </head>
 
 <body>
+	<link rel="stylesheet" href="/components/navbar/navbar.css">
+	<div id="navBarContainer">
+			<div class="ui menu inverted" id="navbar">
+				<div class="item" id="Logo">
+					<p id="iACADEMYLogoText">iACADEMY</p>
+					<span class="facultyEvaluationLogo">Faculty Evaluation</span>
+				</div>
+				<a href="/admin_homepage" class="item" id="redirectLink">HOME</a>
+		
+				<!-- Search Suggestions -->
+				<div class="ui dropdown item right" tabindex="0">
+					<span id="userName">
+						<strong>
+							<%=admin.firstName%> <%=admin.lastName%>
+						</strong>
+					</span>
+					<div class="menu">
+						<a href="/auth/logout" class="item">Logout</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
 <div id="content">
-
-	<a href="/admin_homepage" class="ui button icon labled compact" id="backButton">
-		<i class="icon angle left"></i>Go Back
-	</a>
-
+	<br><br>
 	<h1 class="ui header" id="pageHeader">
 		Faculty List
 	</h1>
@@ -36,7 +54,7 @@
 						<a class="header"><%=professors[i].lastName%>, <%=professors[i].firstName%></a>
 						<div class="ui label teal evaluatedCount">
 							Evaluated:
-							<div class="detail">#</div>
+							<div class="detail"><%=professors[i].numberEvaluated%></div>
 						</div>
 					</div>
 			
@@ -57,6 +75,10 @@
 								<tbody>
 									<tr>
 										<td>Approachability</td>
+										<% console.log(professors[i].attr.approachability)
+										console.log(professors[i].numberEvaluated)
+										console.log(professors[i].attr.approachability / professors[i].numberEvaluated)
+										%>
 										<td><%=professors[i].attr.approachability / professors[i].numberEvaluated%></td>
 									</tr>
 									<tr>
@@ -144,7 +166,9 @@
 $('.ui.accordion')
   .accordion()
 ;
-
+$('.ui.dropdown')
+	.dropdown()
+;
 
 
 </script>

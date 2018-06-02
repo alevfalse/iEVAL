@@ -10,7 +10,7 @@
    <!-- semantic-ui styles -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css" />
    <!-- main css -->
-   <link rel="stylesheet" href="../public/css/form.css">
+   <link rel="stylesheet" href="/css/form.css">
 </head>
 
 <body>
@@ -40,20 +40,20 @@
             <div class="fields">
                 <div class="six wide field">
                     <label for="">Section</label>
-                    <input type="text" readonly="readonly" name="" id="" value="<%= cls.course.section %>">
+                    <input type="text" readonly="readonly" name="" id="" value="<%= cls.section %>">
                 </div>
                 <div class="fields">
                     <div class="field">
                         <label>Day</label>
-                        <input type="text" placeholder="" value="<%= cls.schedule.day %>">
+                        <input type="text" readonly="readonly" placeholder="" value="<%= cls.schedule.day %>">
                     </div>
                     <div class="field">
                         <label for="">Time</label>
-                        <input type="text" placeholder="" value="<%= cls.schedule.time %>">
+                        <input type="text" readonly="readonly" placeholder="" value="<%= cls.schedule.time %>">
                     </div>
                     <div class="field">
                         <label for="">Room</label>
-                        <input type="text" placeholder="" value="<%= cls.schedule.room %>">
+                        <input type="text" readonly="readonly" placeholder="" value="<%= cls.schedule.room %>">
                     </div>
                 </div>
             </div>
