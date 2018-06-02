@@ -16,6 +16,10 @@
 
 <body>
 
+	<!-- INCLUDE NAVBAR HERE ==============================================================================================================-->
+	<!-- INCLUDE NAVBAR HERE ==============================================================================================================-->
+
+
 <div id="content">
 
 		<a class="ui button icon labled" href="/faculty_list" id="facultyListButton">
@@ -123,8 +127,8 @@
 					console.log('Classes: ' + classes.length);
 					for (var i=0; i<classes.length; i++) {%>
 						<div class="result">
-							<div class="ui card">
-			
+							<div class="ui card" id="resultCard">
+
 								<div class="content">
 									<div class="header" id="courseHeader">
 										<%=classes[i].course.name%>
@@ -158,8 +162,8 @@
 											<strong>#faculty</strong>
 										</p>
 									</div>
-			
 								</div>
+							</div>
 						</div>
 					<%}
 				}

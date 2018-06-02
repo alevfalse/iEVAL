@@ -1,5 +1,28 @@
 @import '../fonts/gotham-rounded.css';
 
+@import url('../components/fonts/gotham-rounded.css');
+
+* {
+   margin: 0px;
+   padding: 0px;
+}
+
+body {
+    height: auto;
+    background:-webkit-linear-gradient(top left, #365cae,rgb(66, 49, 130));
+    background-attachment: fixed;
+    background-repeat: repeat;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: auto;
+}
+
+.wrapper {
+    width: 100%;
+    height: auto;
+}
+
 #navBarContainer {
    /* background-color: #6DC4FF; */
    width: 100%;

@@ -70,7 +70,13 @@ body {
 
 .result {
     border-radius: 10px;
+    width: 20em;
     overflow: hidden;
+    /* background-color: #5188ff; */
+}
+
+#resultCard {
+    width: 100%;
 }
 
 #courseHeader {
