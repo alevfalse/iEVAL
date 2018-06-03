@@ -90,44 +90,44 @@ module.exports = function(router) {
 
         Professor.findById(req.params._id, function(err, professor) {
             process.nextTick(function() {
-                console.log(professor)
                 if (err) throw err;
-
+                
+                console.log(professor)
+                
                 b = req.body;
                 console.log(b);
-                
-                var respect = b.q1;
-                var approachability = ((b.q2 + b.q3 + b.q4) / 3);
-                var encouragement = (b.q5 + b.q6) / 2;  
-                var fairness = (b.q7 + b.q8) / 2;
-                var teaching = (b.q9 + b.q10) / 2;
-                var presentation = (b.q11 + b.q12 + b.q13) / 3;
-                var mastery = b.q14;
-                var updated = b.q15;
-                var confidence = b.q16; 
-                var communication = (b.q17 + b.q18) / 2;
-                var punctuality = b.q19;
-                var timeManagement = (b.q20 + b.q21) / 2;
-                var consistency = b.q22;
-                var classManagement =  b.q23;
-                var asset = b.q24;
-                console.log('asset' + asset);
+                var respect             = b.q1;
+                var approachability     = ((parseInt(b.q2) + parseInt(b.q3) + parseInt(b.q4)) / 3);
+                var encouragement       = ((parseInt(b.q5) + parseInt(b.q6)) / 2);  
+                var fairness            = (parseInt(b.q7) + parseInt(b.q8)) / 2;
+                var teaching            = (parseInt(b.q9) + parseInt(b.q10)) / 2;
+                var presentation        = (parseInt(b.q11) + parseInt(b.q12) + parseInt(b.q13)) / 3;
+                var mastery             = parseInt(b.q14);
+                var updated             = parseInt(b.q15);
+                var confidence          = parseInt(b.q16); 
+                var communication       = (parseInt(b.q17) + parseInt(b.q18)) / 2;
+                var punctuality         = parseInt(b.q19);
+                var timeManagement      = (parseInt(b.q20) + parseInt(b.q21)) / 2;
+                var consistency         = parseInt(b.q22);
+                var classManagement     =  parseInt(b.q23);
+                var asset               = parseInt(b.q24);
 
-                professor.set({ 'numberEvaluated': professor.numberEvaluated+1 });
-                professor.set({'attr': { 'respect': professor.attr.respect + respect }});
-                professor.set({'attr': { 'approachability': professor.attr.approachability + approachability }});
-                professor.set({'attr': { 'encouragement': professor.attr.encouragement + encouragement }});
-                professor.set({'attr': { 'fairness': professor.attr.fairness + fairness }});
-                professor.set({'attr': { 'teaching': professor.attr.teaching + teaching }});
-                professor.set({'attr': { 'presentation': professor.attr.presentation + presentation }});
-                professor.set({'attr': { 'updated': professor.attr.updated + updated }});
-                professor.set({'attr': { 'confidence': professor.attr.confidence + confidence }});
-                professor.set({'attr': { 'communication': professor.attr.communication + communication }});
-                professor.set({'attr': { 'punctuality': professor.attr.punctuality + punctuality }});
-                professor.set({'attr': { 'timeManagement': professor.attr.timeManagement + timeManagement }});
-                professor.set({'attr': { 'consistency': professor.attr.consistency + consistency }});
-                professor.set({'attr': { 'classManagement': professor.attr.classManagement + classManagement} });
-                professor.set({'attr': { 'asset': professor.attr.asset + asset }});
+                professor.set({ 'numberEvaluated'           : professor.numberEvaluated+1 });
+                professor.set({'attr': { 'respect'          : professor.attr.respect + respect }});
+                professor.set({'attr': { 'approachability'  : professor.attr.approachability + approachability }});
+                professor.set({'attr': { 'encouragement'    : professor.attr.encouragement + encouragement }});
+                professor.set({'attr': { 'fairness'         : professor.attr.fairness + fairness }});
+                professor.set({'attr': { 'teaching'         : professor.attr.teaching + teaching }});
+                professor.set({'attr': { 'presentation'     : professor.attr.presentation + presentation }});
+                professor.set({'attr': { 'mastery'          : professor.attr.mastery + mastery }});
+                professor.set({'attr': { 'updated'          : professor.attr.updated + updated }});
+                professor.set({'attr': { 'confidence'       : professor.attr.confidence + confidence }});
+                professor.set({'attr': { 'communication'    : professor.attr.communication + communication }});
+                professor.set({'attr': { 'punctuality'      : professor.attr.punctuality + punctuality }});
+                professor.set({'attr': { 'timeManagement'   : professor.attr.timeManagement + timeManagement }});
+                professor.set({'attr': { 'consistency'      : professor.attr.consistency + consistency }});
+                professor.set({'attr': { 'classManagement'  : professor.attr.classManagement + classManagement} });
+                professor.set({'attr': { 'asset'            : professor.attr.asset + asset }});
 
                 professor.save(function(err, updatedProfessor) {
                     if (err) throw err;
